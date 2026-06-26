@@ -408,7 +408,7 @@
             <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
                 <div class="w-full md:w-2/5 bg-gradient-to-br from-rose-500 to-rose-700 p-8 text-white flex flex-col justify-center text-center relative overflow-hidden">
                     <h2 class="text-4xl font-bold font-heading mb-2">6) e-Class</h2>
-                    <p class="text-rose-100 text-sm mb-8 max-w-xs mx-auto">Ekosistem pengurusan bilik darjah dan kelas tambahan, mengandungi 4 komponen utama.</p>
+                    <p class="text-rose-100 text-sm mb-8 max-w-xs mx-auto">Ekosistem pengurusan bilik darjah dan kelas intervensi, mengandungi 5 komponen utama.</p>
                     
                     <div class="relative w-full h-64 flex justify-center items-center mt-2">
                         <div class="absolute w-44 rounded-2xl border-4 border-slate-800 shadow-xl transform -rotate-6 -translate-x-10 bg-white overflow-hidden">
@@ -422,22 +422,22 @@
                     </div>
                 </div>
                 <div class="w-full md:w-3/5 p-8 bg-slate-50 flex-grow scroll-area overflow-y-auto">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 h-full items-center">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 h-full items-start py-2">
                         <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
                             <div class="flex items-center gap-3 mb-2">
                                 <div class="bg-rose-100 text-rose-600 w-8 h-8 rounded-lg flex justify-center items-center"><i class="fas fa-user-graduate"></i></div>
                                 <h4 class="font-bold text-md text-slate-800">1. Maklumat Pelajar</h4>
                             </div>
-                            <p class="text-slate-600 text-xs">Data pelajar ikut kelas (Gambar formal, No IC, No Matrik, E-mel, No Tel Ibu Bapa). Guru kelas berkuasa edit data. Guru lain boleh buat panggilan/WhatsApp terus kepada penjaga melalui app.</p>
+                            <p class="text-slate-600 text-xs">Data pelajar ikut kelas (Gambar formal, No IC, No Matrik, E-mel, Tel Ibu Bapa). Guru kelas berkuasa edit data.</p>
                         </div>
 
                         <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 relative">
                             <div class="absolute top-3 right-3 bg-red-100 text-red-600 text-[10px] font-bold px-2 py-0.5 rounded">Auto PDF</div>
                             <div class="flex items-center gap-3 mb-2">
                                 <div class="bg-rose-100 text-rose-600 w-8 h-8 rounded-lg flex justify-center items-center"><i class="fas fa-clipboard-list"></i></div>
-                                <h4 class="font-bold text-md text-slate-800">2. Rekod Kawalan Kelas</h4>
+                                <h4 class="font-bold text-md text-slate-800">2. Rekod Kawalan</h4>
                             </div>
-                            <p class="text-slate-600 text-xs">Guru isi kehadiran pelajar setiap kali kelas berlangsung. Selepas disahkan oleh Naib Mudir, rekod akan dijana ke format PDF secara automatik untuk simpanan rasmi.</p>
+                            <p class="text-slate-600 text-xs">Guru isi kehadiran pelajar setiap kali kelas berlangsung. Rekod akan dijana ke PDF selepas disahkan.</p>
                         </div>
 
                         <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
@@ -445,16 +445,28 @@
                                 <div class="bg-rose-100 text-rose-600 w-8 h-8 rounded-lg flex justify-center items-center"><i class="fas fa-book-open"></i></div>
                                 <h4 class="font-bold text-md text-slate-800">3. Jadual Tuisyen</h4>
                             </div>
-                            <p class="text-slate-600 text-xs mb-2">PIC tuisyen daftar tarikh dan waktu. Maklumat akan terpapar.</p>
-                            <p class="text-[10px] bg-rose-50 text-rose-700 p-1.5 rounded border border-rose-100 font-medium">Sistem Peringatan Bertingkat: Guru dapat noti 3 hari, 2 hari, 1 hari & 30 minit sebelum tuisyen bermula.</p>
+                            <p class="text-slate-600 text-xs mb-2">PIC tuisyen daftar tarikh dan waktu.</p>
+                            <p class="text-[10px] bg-rose-50 text-rose-700 p-1.5 rounded border border-rose-100 font-medium">Sistem Peringatan Bertingkat: 3 hari, 2 hari, 1 hari & 30 min sebelum bermula.</p>
                         </div>
 
                         <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
                             <div class="flex items-center gap-3 mb-2">
                                 <div class="bg-rose-100 text-rose-600 w-8 h-8 rounded-lg flex justify-center items-center"><i class="fas fa-plus-circle"></i></div>
-                                <h4 class="font-bold text-md text-slate-800">4. Kelas Tambahan</h4>
+                                <h4 class="font-bold text-md text-slate-800">4. Kelas Intervensi</h4>
                             </div>
-                            <p class="text-slate-600 text-xs">Ruang interaktif di mana Guru Subjek boleh mendaftarkan sendiri jadual kelas tambahan untuk makluman dan paparan umum para pelajar terlibat.</p>
+                            <p class="text-slate-600 text-xs">Ruang interaktif di mana Guru Subjek boleh mendaftarkan jadual kelas intervensi untuk makluman.</p>
+                        </div>
+
+                        <!-- FEATURE BARU: SWAP KELAS -->
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 md:col-span-2">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="bg-rose-100 text-rose-600 w-8 h-8 rounded-lg flex justify-center items-center"><i class="fas fa-exchange-alt"></i></div>
+                                <h4 class="font-bold text-md text-slate-800">5. Swap Kelas</h4>
+                            </div>
+                            <p class="text-slate-600 text-xs mb-3">Ruangan urusan pertukaran sesi pengajaran antara guru. Guru yang dipohon akan menerima notifikasi berserta butang respon <strong>'Terima'</strong> atau <strong>'Tolak'</strong>.</p>
+                            <div class="inline-flex items-center gap-2 text-[10px] bg-emerald-50 text-emerald-700 p-2 rounded-lg border border-emerald-100 font-bold">
+                                <i class="fas fa-bell text-emerald-500"></i> Jika diterima: Notifikasi 'reminder' akan dihantar 10 minit sebelum kelas Swap tersebut bermula.
+                            </div>
                         </div>
                     </div>
                 </div>
