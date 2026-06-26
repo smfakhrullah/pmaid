@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMA IDigital - Premium User Guide (Detailed)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #f1f5f9; 
+            overflow: hidden; 
+        }
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Outfit', sans-serif;
+        }
+        .slide { 
+            transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1); 
+            opacity: 0; 
+            transform: translateY(30px) scale(0.97); 
+            pointer-events: none; 
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .slide.active { 
+            opacity: 1; 
+            transform: translateY(0) scale(1); 
+            pointer-events: auto; 
+            z-index: 10; 
+        }
+        .glass-nav { 
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.6); 
+        }
+        .bg-pattern { 
+            background-image: radial-gradient(#94a3b8 1px, transparent 1px); 
+            background-size: 24px 24px; 
+        }
+        
+        /* Custom Scrollbar for inner content */
+        .scroll-area::-webkit-scrollbar { width: 6px; }
+        .scroll-area::-webkit-scrollbar-track { background: transparent; }
+        .scroll-area::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .scroll-area::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="text-slate-800 antialiased h-screen w-screen relative bg-slate-100 bg-pattern">
+
+    <!-- Navigation Controls -->
+    <div class="fixed bottom-6 right-8 z-50 flex items-center gap-4 glass-nav px-6 py-3 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+        <button id="menuBtn" onclick="toggleMenu()" class="w-11 h-11 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 hover:bg-blue-600 hover:text-white transition-all shadow-sm" title="Menu Navigasi">
+            <i class="fas fa-th-large"></i>
+        </button>
+        <div class="w-px h-6 bg-slate-300 mx-1"></div>
+        <button id="prevBtn" class="w-11 h-11 flex items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-slate-800 hover:text-white transition-all shadow-sm disabled:opacity-40 disabled:cursor-not-allowed">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="font-bold font-heading text-slate-800 min-w-[70px] text-center text-lg">
+            <span id="currentSlideNum">1</span><span class="text-slate-400 text-sm font-normal mx-1">/</span><span id="totalSlides" class="text-slate-500 text-sm">27</span>
+        </div>
+        <button id="nextBtn" class="w-11 h-11 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-all shadow-md disabled:opacity-40 disabled:cursor-not-allowed">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- Container for all slides -->
+    <div class="relative w-full h-full" id="slideContainer">
+
+        <!-- SLIDE 1: COVER -->
+        <div class="slide active">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh] border border-white">
+                <div class="w-full md:w-1/2 bg-gradient-to-br from-indigo-900 via-blue-800 to-blue-600 p-12 text-white flex flex-col justify-center relative overflow-hidden">
+                    <div class="absolute -top-32 -left-32 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+                    <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl"></div>
+                    
+                    <div class="mb-8 relative z-10 w-32 h-32 rounded-3xl shadow-2xl overflow-hidden flex items-center justify-center border border-white/10">
+                        <img src="pic/PMA LOGO 4.png" alt="Logo PMA IDigital" class="w-full h-full object-cover scale-[1.02]">
+                    </div>
+                    
+                    <h1 class="text-6xl font-bold font-heading leading-tight mb-4 relative z-10 tracking-tight">PMA<br>IDigital</h1>
+                    <p class="text-blue-100 text-xl relative z-10 mb-8 font-light">Dokumentasi & Panduan Pengguna Rasmi Secara Terperinci.</p>
+                    
+                    <div class="flex items-center gap-3 relative z-10 mt-auto pt-8 border-t border-white/20">
+                        <span class="px-3 py-1 bg-white/20 rounded-full text-sm backdrop-blur-sm">20 Modul</span>
+                        <span class="px-3 py-1 bg-white/20 rounded-full text-sm backdrop-blur-sm">Sistem Bersepadu</span>
+                        <span class="px-3 py-1 bg-white/20 rounded-full text-sm backdrop-blur-sm">AppSheet Platform</span>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 p-12 flex flex-col justify-center bg-slate-50 relative overflow-hidden">
+                    <h2 class="text-3xl font-bold font-heading text-slate-800 mb-6">Sistem Pengurusan Sekolah Komprehensif</h2>
+                    <p class="text-slate-600 mb-8 text-lg leading-relaxed">Selamat datang ke ekosistem PMA IDigital. Pembentangan ini akan merungkai setiap satu daripada 20 modul utama secara terperinci untuk memudahkan urusan pentadbiran, guru, dan operasi harian sekolah.</p>
+                    
+                    <div class="flex-grow flex justify-center items-center relative z-10 w-full">
+                        <img src="pic/PMAIDigital Screen02.png" alt="Paparan Skrin PMA IDigital" class="h-full max-h-[380px] object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: CARA PEMASANGAN -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-slate-800 to-slate-900 p-12 text-white flex flex-col justify-center text-center items-center">
+                    <div class="w-32 h-32 bg-white/10 rounded-full flex items-center justify-center mb-8 backdrop-blur-md border border-white/20 shadow-xl">
+                        <i class="fas fa-download text-6xl text-emerald-400"></i>
+                    </div>
+                    <h2 class="text-5xl font-bold font-heading mb-4">Akses & Pemasangan</h2>
+                    <p class="text-slate-300 text-lg max-w-sm">Pilih platform kesesuaian anda. Aplikasi boleh diakses pantas melalui Telefon Pintar atau Pelayar Web (PC/Laptop).</p>
+                </div>
+                <div class="w-full md:w-3/5 p-12 bg-slate-50 flex flex-col justify-center scroll-area overflow-y-auto">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-8 font-heading border-b pb-4">Panduan Mengakses PMA IDigital</h3>
+
+                    <div class="grid grid-cols-1 gap-6">
+                        <!-- Opsyen 1: Telefon Pintar -->
+                        <div class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-emerald-500 relative">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-full flex justify-center items-center text-2xl"><i class="fas fa-mobile-alt"></i></div>
+                                <h4 class="font-bold text-xl text-slate-800 font-heading">A. Telefon Pintar (iOS & Android)</h4>
+                            </div>
+                            <ol class="list-decimal list-inside space-y-2 text-slate-600 text-sm mb-5">
+                                <li>Muat turun aplikasi percuma <strong>AppSheet</strong> di <i class="fab fa-google-play text-emerald-500 mx-1"></i>Play Store atau <i class="fab fa-apple text-slate-800 mx-1"></i>App Store.</li>
+                                <li>Klik butang pemasangan bimbit (Install on Mobile) di bawah.</li>
+                                <li>Selepas aplikasi dibuka, tekan menu (tiga titik) di sudut skrin dan pilih <strong>"Add to Home Screen"</strong> untuk pintasan pantas di telefon anda.</li>
+                            </ol>
+                            <a href="https://www.appsheet.com/newshortcut/ca9f692a-0d4c-4db5-95bd-592024607d66" target="_blank" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-5 py-2.5 rounded-xl text-sm font-bold transition shadow-md hover:shadow-lg">
+                                <i class="fas fa-external-link-alt"></i> Install on Mobile
+                            </a>
+                        </div>
+
+                        <!-- Opsyen 2: Pelayar Web -->
+                        <div class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-blue-500 relative">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-full flex justify-center items-center text-2xl"><i class="fas fa-laptop"></i></div>
+                                <h4 class="font-bold text-xl text-slate-800 font-heading">B. Pelayar Web (PC / Laptop)</h4>
+                            </div>
+                            <ol class="list-decimal list-inside space-y-2 text-slate-600 text-sm mb-5">
+                                <li>Sangat sesuai untuk tugasan pelaporan dan pengurusan data.</li>
+                                <li>Tiada pemasangan diperlukan. Klik butang akses pelayar di bawah.</li>
+                                <li>Log masuk menggunakan akaun rasmi anda untuk mula menggunakan sistem melalui Google Chrome, Safari, atau Edge.</li>
+                            </ol>
+                            <a href="https://www.appsheet.com/start/ca9f692a-0d4c-4db5-95bd-592024607d66" target="_blank" class="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-5 py-2.5 rounded-xl text-sm font-bold transition shadow-md hover:shadow-lg">
+                                <i class="fas fa-globe"></i> Open in Browser
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE BARU: TIPS APPSHEET -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-yellow-400 to-amber-600 p-12 text-white flex flex-col justify-center text-center items-center">
+                    <div class="w-32 h-32 bg-white/20 rounded-full flex items-center justify-center mb-8 backdrop-blur-md shadow-xl border border-white/30">
+                        <i class="fas fa-lightbulb text-6xl text-yellow-100"></i>
+                    </div>
+                    <h2 class="text-5xl font-bold font-heading mb-4">Tips AppSheet</h2>
+                    <p class="text-amber-50 text-lg max-w-sm">Amalan terbaik (Best Practices) untuk memastikan aplikasi PMA IDigital berjalan lancar di peranti anda.</p>
+                </div>
+                <div class="w-full md:w-3/5 p-12 bg-slate-50 flex flex-col justify-center scroll-area overflow-y-auto">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-8 font-heading border-b pb-4">Panduan Teknikal</h3>
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex gap-5 items-start relative overflow-hidden">
+                            <div class="absolute right-0 top-0 w-2 h-full bg-blue-500"></div>
+                            <div class="bg-blue-100 text-blue-600 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-xl"><i class="fas fa-sync-alt"></i></div>
+                            <div>
+                                <h4 class="font-bold text-lg text-slate-800 mb-1">Sentiasa 'Sync' Data Anda</h4>
+                                <p class="text-slate-600 text-sm leading-relaxed">AppSheet beroperasi berasaskan sistem awan (Cloud). Sila biasakan diri untuk menekan ikon <strong>Sync (pusaran dua anak panah)</strong> di penjuru atas kanan aplikasi setiap kali anda membuka app untuk memastikan anda mendapat data dan jadual yang paling terkini.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex gap-5 items-start relative overflow-hidden">
+                            <div class="absolute right-0 top-0 w-2 h-full bg-emerald-500"></div>
+                            <div class="bg-emerald-100 text-emerald-600 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-xl"><i class="fas fa-bell"></i></div>
+                            <div>
+                                <h4 class="font-bold text-lg text-slate-800 mb-1">Kebenaran Notifikasi (Allow Notifications)</h4>
+                                <p class="text-slate-600 text-sm leading-relaxed">Untuk memastikan anda tidak terlepas peringatan kelas, jadual relief, atau hebahan penting dari pentadbiran, pastikan anda telah <strong>membenarkan (Allow)</strong> notifikasi bagi aplikasi AppSheet di bahagian tetapan (Settings) peranti anda.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE BARU: HIERARKI AKSES -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-indigo-600 to-blue-800 p-12 text-white flex flex-col justify-center text-center items-center">
+                    <div class="w-32 h-32 bg-white/10 rounded-full flex items-center justify-center mb-8 backdrop-blur-md shadow-xl border border-white/20">
+                        <i class="fas fa-sitemap text-6xl text-indigo-200"></i>
+                    </div>
+                    <h2 class="text-5xl font-bold font-heading mb-4">Hierarki Akses</h2>
+                    <p class="text-indigo-100 text-lg max-w-sm">PMA IDigital dikawal oleh tahap keselamatan dan peranan pengguna yang berbeza.</p>
+                </div>
+                <div class="w-full md:w-3/5 p-10 bg-slate-50 flex flex-col justify-center scroll-area overflow-y-auto">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-heading border-b pb-4">Akses Mengikut Peranan (Roles)</h3>
+                    <p class="text-slate-600 text-sm mb-6 bg-indigo-50 p-3 rounded-lg border border-indigo-100"><i class="fas fa-info-circle text-indigo-500 mr-2"></i> Jangan bimbang jika anda tidak melihat fungsi tertentu (contoh: butang Edit/Delete). Paparan aplikasi diubahsuai secara automatik berdasarkan tugas rasmi anda.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-xl shadow-sm border-l-4 border-slate-400 flex items-center gap-4 hover:shadow-md transition">
+                            <div class="text-2xl text-slate-400 w-10 text-center"><i class="fas fa-user"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">Pengguna Biasa (Guru / Staf)</h4>
+                                <p class="text-slate-500 text-xs mt-1">Akses standard. Boleh melihat maklumat umum, menghantar laporan kokurikulum, menempah bilik fasiliti, dan merekod e-Aduan.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border-l-4 border-emerald-500 flex items-center gap-4 hover:shadow-md transition">
+                            <div class="text-2xl text-emerald-500 w-10 text-center"><i class="fas fa-user-edit"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">Penyelaras (PIC) / Guru Kelas</h4>
+                                <p class="text-slate-500 text-xs mt-1">Akses pertengahan. Guru kelas boleh edit data pelajarnya. SU Peperiksaan mengawal soalan. PIC Bilik mengesahkan tempahan.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border-l-4 border-blue-600 flex items-center gap-4 hover:shadow-md transition">
+                            <div class="text-2xl text-blue-600 w-10 text-center"><i class="fas fa-user-shield"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">Pengurusan Tertinggi (Mudir / Admin)</h4>
+                                <p class="text-slate-500 text-xs mt-1">Akses penuh. Berkuasa memberi pengesahan akhir (contoh: Kelulusan Bas), meluluskan laporan rasmi, dan menyunting jadual utama sekolah.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: e-Profil -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-blue-500 to-blue-700 p-8 text-white flex flex-col justify-center text-center">
+                    <h2 class="text-4xl font-bold font-heading mb-2">1) e-Profil</h2>
+                    <p class="text-blue-100 text-sm mb-6 max-w-xs mx-auto">Pangkalan data maklumat warga kerja PMA. Memudahkan komunikasi sesama staf secara efisien.</p>
+                    <div class="relative w-full h-64 flex justify-center items-center mt-2">
+                        <div class="absolute w-44 rounded-2xl border-4 border-slate-800 shadow-xl transform -rotate-6 -translate-x-10 bg-white overflow-hidden">
+                            <div class="absolute top-0 inset-x-0 h-3 bg-slate-800 rounded-b-lg w-1/3 mx-auto z-20"></div>
+                            <img src="pic/image_e398c6.png" class="w-full h-auto" alt="Submenu e-Profil">
+                        </div>
+                        <div class="absolute w-44 rounded-2xl border-4 border-slate-800 shadow-2xl transform rotate-6 translate-x-10 bg-white overflow-hidden z-10">
+                            <div class="absolute top-0 inset-x-0 h-3 bg-slate-800 rounded-b-lg w-1/3 mx-auto z-20"></div>
+                            <img src="pic/image_e39880.png" class="w-full h-auto" alt="e-Profil">
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5 p-12 bg-slate-50 flex flex-col justify-center scroll-area overflow-y-auto">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-8 font-heading border-b pb-4">Fungsi Terperinci Modul</h3>
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                            <h4 class="font-bold text-lg text-slate-800 mb-2 flex items-center gap-2"><i class="fas fa-user-circle text-blue-500"></i> Maklumat Korporat</h4>
+                            <p class="text-slate-600">Memaparkan secara kemas maklumat penting staf PMA termasuk nama penuh, alamat e-mel rasmi, dan gambar profil korporat untuk pengecaman mudah.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 relative overflow-hidden">
+                            <div class="absolute right-[-10px] bottom-[-10px] text-6xl text-emerald-50 opacity-50"><i class="fab fa-whatsapp"></i></div>
+                            <h4 class="font-bold text-lg text-slate-800 mb-2 flex items-center gap-2 relative z-10"><i class="fab fa-whatsapp text-emerald-500"></i> Integrasi WhatsApp Terus</h4>
+                            <p class="text-slate-600 relative z-10">Dilengkapi pautan nombor WhatsApp aktif. Pengguna hanya perlu menekan butang WhatsApp pada profil, dan akan terus dibawa ke aplikasi WhatsApp untuk menghantar mesej tanpa perlu menyimpan nombor telefon di dalam peranti.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: Kehadiran Staf -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-emerald-500 to-emerald-700 p-8 text-white flex flex-col justify-center text-center">
+                    <h2 class="text-4xl font-bold font-heading mb-2">2) Kehadiran Staf</h2>
+                    <p class="text-emerald-100 text-sm mb-6 max-w-xs mx-auto">Sistem pemantauan kehadiran dan rekod keluar masuk kakitangan harian.</p>
+                    <div class="relative w-56 rounded-[2rem] border-[6px] border-slate-800 shadow-2xl overflow-hidden bg-white z-10 mx-auto mt-2">
+                        <div class="absolute top-0 inset-x-0 h-4 bg-slate-800 rounded-b-xl w-1/3 mx-auto z-20"></div>
+                        <img src="pic/image_e397ed.png" alt="Maklumat Kehadiran" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5 p-12 bg-slate-50 flex flex-col justify-center scroll-area overflow-y-auto">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-8 font-heading border-b pb-4">Fungsi Terperinci Modul</h3>
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                            <h4 class="font-bold text-lg text-slate-800 mb-2 flex items-center gap-2"><i class="fas fa-clipboard-check text-emerald-500"></i> Kemas Kini Harian</h4>
+                            <p class="text-slate-600">Person-In-Charge (PIC) akan mengemas kini status kehadiran semua kakitangan pada setiap hari secara berpusat dan sistematik.</p>
+                        </div>
+                        <div class="bg-emerald-50 p-6 rounded-2xl shadow-inner border border-emerald-100">
+                            <h4 class="font-bold text-lg text-emerald-800 mb-2 flex items-center gap-2"><i class="fas fa-bell text-emerald-500"></i> Makluman Ketersediaan Data</h4>
+                            <p class="text-emerald-700">Sejurus PIC selesai mengemas kini data, satu <strong>notifikasi automatik</strong> akan dihantar menandakan bahawa "Data Kehadiran Telah Tersedia". Staf boleh terus menyemak rekod kehadiran masing-masing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: e-Taqwim -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-amber-500 to-amber-600 p-8 text-white flex flex-col justify-center text-center">
+                    <h2 class="text-4xl font-bold font-heading mb-2">3) e-Taqwim</h2>
+                    <p class="text-amber-100 text-sm mb-6 max-w-xs mx-auto">Kalendar pintar interaktif yang merekodkan segala jadual dan program tahunan sekolah.</p>
+                    <div class="relative w-56 rounded-[2rem] border-[6px] border-slate-800 shadow-2xl overflow-hidden bg-white z-10 mx-auto mt-2">
+                        <div class="absolute top-0 inset-x-0 h-4 bg-slate-800 rounded-b-xl w-1/3 mx-auto z-20"></div>
+                        <img src="pic/image_d9335a.png" alt="Paparan e-Taqwim" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5 p-12 bg-slate-50 flex flex-col justify-center scroll-area overflow-y-auto">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-heading border-b pb-4">Fungsi Terperinci Modul</h3>
+                    <div class="grid grid-cols-1 gap-5">
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+                            <h4 class="font-bold text-slate-800 mb-1 flex items-center gap-2"><i class="fas fa-tags text-amber-500"></i> Label Kategori Program</h4>
+                            <p class="text-slate-600 text-sm">Kesemua program tahunan disenaraikan dan dilabel mengikut kategori secara teratur, memudahkan rujukan.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+                            <h4 class="font-bold text-slate-800 mb-1 flex items-center gap-2"><i class="fas fa-sun text-amber-500"></i> Notifikasi Pagi (Reminder)</h4>
+                            <p class="text-slate-600 text-sm">Setiap pagi, pengguna akan menerima notifikasi "Push Reminder" yang memaklumkan apakah program yang akan berlangsung pada hari tersebut.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+                            <h4 class="font-bold text-slate-800 mb-1 flex items-center gap-2"><i class="fas fa-chart-pie text-amber-500"></i> Rumusan Bulanan</h4>
+                            <p class="text-slate-600 text-sm">Menyediakan fungsi rumusan Taqwim yang bertindak menyenaraikan program tahunan secara ringkas mengikut spesifik bulan pilihan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: e-Huffaz -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-teal-500 to-teal-700 p-8 text-white flex flex-col justify-center text-center">
+                    <h2 class="text-4xl font-bold font-heading mb-2">4) e-Huffaz</h2>
+                    <p class="text-teal-100 text-sm mb-6 max-w-xs mx-auto">Modul Halaqah untuk memantau dan mengurus rekod hafazan para pelajar secara efisien.</p>
+                    <div class="relative w-56 rounded-[2rem] border-[6px] border-slate-800 shadow-2xl overflow-hidden bg-white z-10 mx-auto mt-2">
+                        <div class="absolute top-0 inset-x-0 h-4 bg-slate-800 rounded-b-xl w-1/3 mx-auto z-20"></div>
+                        <img src="pic/image_e39bcc.png" alt="Submenu e-Huffaz" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5 p-12 bg-slate-50 flex flex-col justify-center scroll-area overflow-y-auto">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-heading border-b pb-4">Fungsi Terperinci Modul</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 border-teal-500">
+                            <h4 class="font-bold text-slate-800 mb-1">Pangkalan Data Halaqah</h4>
+                            <p class="text-slate-600 text-sm">Memaparkan senarai nama pelajar yang telah disusun rapi mengikut Guru Hafazan masing-masing.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 border-teal-500">
+                            <h4 class="font-bold text-slate-800 mb-1">Rekod Hafazan Harian</h4>
+                            <p class="text-slate-600 text-sm">Guru hafazan boleh merekodkan muka surat hafazan baharu yang dihantar oleh pelajar pada setiap sesi. Turut memaparkan rekod muka surat hantaran sebelumnya untuk kesinambungan.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 border-teal-500">
+                            <h4 class="font-bold text-slate-800 mb-1">Rumusan Hantaran Terakhir</h4>
+                            <p class="text-slate-600 text-sm">Fungsi rumusan khas bertujuan untuk memaparkan maklumat "Hantaran Muka Surat Terakhir". Ia sangat penting bagi memudahkan guru membuat rujukan pantas untuk dimasukkan ke dalam sistem sekolah yang lain.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: e-Jadual -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-indigo-500 to-purple-600 p-8 text-white flex flex-col justify-center text-center relative overflow-hidden">
+                    <h2 class="text-4xl font-bold font-heading mb-2">5) e-Jadual</h2>
+                    <p class="text-indigo-100 text-sm mb-8 max-w-xs mx-auto">Sistem pengurusan jadual waktu kelas & jadual persendirian guru berintegrasi notifikasi.</p>
+                    <div class="relative w-full h-64 flex justify-center items-center mt-2">
+                        <div class="absolute w-44 rounded-2xl border-4 border-slate-800 shadow-xl transform -rotate-6 -translate-x-10 bg-white overflow-hidden">
+                            <div class="absolute top-0 inset-x-0 h-3 bg-slate-800 rounded-b-lg w-1/3 mx-auto z-20"></div>
+                            <img src="pic/image_e41feb.png" class="w-full h-auto" alt="Dashboard e-Jadual">
+                        </div>
+                        <div class="absolute w-44 rounded-2xl border-4 border-slate-800 shadow-2xl transform rotate-6 translate-x-10 bg-white overflow-hidden z-10">
+                            <div class="absolute top-0 inset-x-0 h-3 bg-slate-800 rounded-b-lg w-1/3 mx-auto z-20"></div>
+                            <img src="pic/image_e4230d.png" class="w-full h-auto" alt="Dashboard Jadual Kelas">
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5 p-12 bg-slate-50 flex flex-col justify-center scroll-area overflow-y-auto">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-heading border-b pb-4">Bahagian Terperinci</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-3xl shadow-md border border-slate-100 flex flex-col h-full">
+                            <div class="w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-4"><i class="fas fa-users-class"></i></div>
+                            <h4 class="font-bold text-lg text-slate-800 mb-2">1. Jadual Waktu Kelas</h4>
+                            <p class="text-slate-600 text-sm mb-2">Memaparkan jadual waktu menyeluruh bagi semua kelas yang ada di sekolah.</p>
+                            <p class="text-indigo-600 font-semibold text-sm bg-indigo-50 px-3 py-2 rounded-lg mt-auto">Papar kelas sedang berlangsung secara 'Real-time'.</p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-3xl shadow-md border border-slate-100 flex flex-col h-full relative overflow-hidden">
+                            <div class="absolute right-0 top-0 w-2 h-full bg-purple-500"></div>
+                            <div class="w-12 h-12 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center text-xl mb-4"><i class="fas fa-chalkboard-teacher"></i></div>
+                            <h4 class="font-bold text-lg text-slate-800 mb-2">2. Jadual Mengajar Guru</h4>
+                            <p class="text-slate-600 text-sm mb-3">Paparan khusus jadual mengajar peribadi bagi setiap guru.</p>
+                            <div class="flex items-center gap-2 text-xs text-slate-500 mb-4">
+                                <span class="bg-slate-100 px-2 py-1 rounded border">Versi Digital</span>
+                                <span class="bg-slate-100 px-2 py-1 rounded border">Muat Turun PDF</span>
+                            </div>
+                            <div class="bg-rose-50 border-l-2 border-rose-500 p-2 rounded mt-auto">
+                                <p class="text-xs text-rose-700 font-semibold flex items-center gap-1">
+                                    <i class="fas fa-bell"></i> Reminder: 10 Minit sebelum masa!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: e-Class -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-rose-500 to-rose-700 p-8 text-white flex flex-col justify-center text-center relative overflow-hidden">
+                    <h2 class="text-4xl font-bold font-heading mb-2">6) e-Class</h2>
+                    <p class="text-rose-100 text-sm mb-8 max-w-xs mx-auto">Ekosistem pengurusan bilik darjah dan kelas tambahan, mengandungi 4 komponen utama.</p>
+                    
+                    <div class="relative w-full h-64 flex justify-center items-center mt-2">
+                        <div class="absolute w-44 rounded-2xl border-4 border-slate-800 shadow-xl transform -rotate-6 -translate-x-10 bg-white overflow-hidden">
+                            <div class="absolute top-0 inset-x-0 h-3 bg-slate-800 rounded-b-lg w-1/3 mx-auto z-20"></div>
+                            <img src="pic/image_d93a05.png" class="w-full h-auto" alt="Submenu e-Class">
+                        </div>
+                        <div class="absolute w-44 rounded-2xl border-4 border-slate-800 shadow-2xl transform rotate-6 translate-x-10 bg-white overflow-hidden z-10">
+                            <div class="absolute top-0 inset-x-0 h-3 bg-slate-800 rounded-b-lg w-1/3 mx-auto z-20"></div>
+                            <img src="pic/image_d936dc.png" class="w-full h-auto" alt="Maklumat Pelajar">
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5 p-8 bg-slate-50 flex-grow scroll-area overflow-y-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 h-full items-center">
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="bg-rose-100 text-rose-600 w-8 h-8 rounded-lg flex justify-center items-center"><i class="fas fa-user-graduate"></i></div>
+                                <h4 class="font-bold text-md text-slate-800">1. Maklumat Pelajar</h4>
+                            </div>
+                            <p class="text-slate-600 text-xs">Data pelajar ikut kelas (Gambar formal, No IC, No Matrik, E-mel, No Tel Ibu Bapa). Guru kelas berkuasa edit data. Guru lain boleh buat panggilan/WhatsApp terus kepada penjaga melalui app.</p>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 relative">
+                            <div class="absolute top-3 right-3 bg-red-100 text-red-600 text-[10px] font-bold px-2 py-0.5 rounded">Auto PDF</div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="bg-rose-100 text-rose-600 w-8 h-8 rounded-lg flex justify-center items-center"><i class="fas fa-clipboard-list"></i></div>
+                                <h4 class="font-bold text-md text-slate-800">2. Rekod Kawalan Kelas</h4>
+                            </div>
+                            <p class="text-slate-600 text-xs">Guru isi kehadiran pelajar setiap kali kelas berlangsung. Selepas disahkan oleh Naib Mudir, rekod akan dijana ke format PDF secara automatik untuk simpanan rasmi.</p>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="bg-rose-100 text-rose-600 w-8 h-8 rounded-lg flex justify-center items-center"><i class="fas fa-book-open"></i></div>
+                                <h4 class="font-bold text-md text-slate-800">3. Jadual Tuisyen</h4>
+                            </div>
+                            <p class="text-slate-600 text-xs mb-2">PIC tuisyen daftar tarikh dan waktu. Maklumat akan terpapar.</p>
+                            <p class="text-[10px] bg-rose-50 text-rose-700 p-1.5 rounded border border-rose-100 font-medium">Sistem Peringatan Bertingkat: Guru dapat noti 3 hari, 2 hari, 1 hari & 30 minit sebelum tuisyen bermula.</p>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="bg-rose-100 text-rose-600 w-8 h-8 rounded-lg flex justify-center items-center"><i class="fas fa-plus-circle"></i></div>
+                                <h4 class="font-bold text-md text-slate-800">4. Kelas Tambahan</h4>
+                            </div>
+                            <p class="text-slate-600 text-xs">Ruang interaktif di mana Guru Subjek boleh mendaftarkan sendiri jadual kelas tambahan untuk makluman dan paparan umum para pelajar terlibat.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: e-KOKO -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-orange-500 to-orange-700 p-8 text-white flex flex-col justify-center text-center">
+                    <h2 class="text-4xl font-bold font-heading mb-2">7) e-KOKO</h2>
+                    <p class="text-orange-100 text-sm mb-6 max-w-xs mx-auto">Sistem komprehensif menguruskan kokurikulum dengan 9 komponen penting.</p>
+                    <div class="relative w-56 rounded-[2rem] border-[6px] border-slate-800 shadow-2xl overflow-hidden bg-white z-10 mx-auto mt-2">
+                        <div class="absolute top-0 inset-x-0 h-4 bg-slate-800 rounded-b-xl w-1/3 mx-auto z-20"></div>
+                        <img src="pic/image_d93a66.png" alt="Submenu e-KOKO" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5 p-8 bg-slate-50 flex-grow scroll-area overflow-y-auto">
+                    <div class="grid grid-cols-1 gap-5">
+                        
+                        <!-- Col 1: Pangkalan Data -->
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 border-blue-400 flex flex-col md:flex-row gap-4 items-start">
+                            <div class="w-10 h-10 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center shrink-0"><i class="fas fa-database"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 mb-2">Pangkalan Data</h4>
+                                <ul class="space-y-1 text-sm text-slate-600">
+                                    <li><strong>Data Guru:</strong> Maklumat guru penasihat.</li>
+                                    <li><strong>Data Pelajar:</strong> Unit koko keseluruhan pelajar.</li>
+                                    <li><strong>Senarai Ahli:</strong> Badan Beruniform, Kelab & Persatuan, Sukan & Permainan.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Col 2: Pelaporan -->
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 border-red-400 flex flex-col md:flex-row gap-4 items-start">
+                            <div class="w-10 h-10 bg-red-50 text-red-500 rounded-full flex items-center justify-center shrink-0"><i class="fas fa-file-pdf"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 mb-2">Pelaporan (Auto-PDF)</h4>
+                                <ul class="space-y-1 text-sm text-slate-600">
+                                    <li><strong>Laporan Koko:</strong> Guru buat laporan setiap sesi. Auto-tukar PDF selepas disahkan.</li>
+                                    <li><strong>Laporan Luar:</strong> Laporan aktiviti luar sekolah (Auto-PDF).</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Col 3: Pengoperasian -->
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 border-green-400 flex flex-col md:flex-row gap-4 items-start">
+                            <div class="w-10 h-10 bg-green-50 text-green-500 rounded-full flex items-center justify-center shrink-0"><i class="fas fa-calendar-check"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 mb-2">Pengoperasian</h4>
+                                <ul class="space-y-1 text-sm text-slate-600">
+                                    <li><strong>Taqwim Koko:</strong> Paparan takwim kokurikulum bulanan.</li>
+                                    <li><strong>Kehadiran Koko:</strong> Borang daftar kehadiran. Sistem akan auto-papar senarai nama pelajar ikut unit.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: e-Hep -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-red-600 to-rose-800 p-8 text-white flex flex-col justify-center text-center">
+                    <h2 class="text-4xl font-bold font-heading mb-2">8) e-Hep</h2>
+                    <p class="text-red-100 text-sm mb-8 max-w-xs mx-auto">Modul Hal Ehwal Pelajar yang memfokuskan kepada pengurusan asrama dan pelaporan disiplin.</p>
+                    <div class="relative w-full h-64 flex justify-center items-center mt-2 z-10">
+                        <div class="absolute w-44 rounded-2xl border-4 border-slate-800 shadow-xl transform -rotate-6 -translate-x-10 bg-white overflow-hidden">
+                            <div class="absolute top-0 inset-x-0 h-3 bg-slate-800 rounded-b-lg w-1/3 mx-auto z-20"></div>
+                            <img src="pic/image_d93dc4.png" class="w-full h-auto" alt="Submenu e-Hep">
+                        </div>
+                        <div class="absolute w-44 rounded-2xl border-4 border-slate-800 shadow-2xl transform rotate-6 translate-x-10 bg-white overflow-hidden z-10">
+                            <div class="absolute top-0 inset-x-0 h-3 bg-slate-800 rounded-b-lg w-1/3 mx-auto z-20"></div>
+                            <img src="pic/image_e41c47.png" class="w-full h-auto" alt="Borang e-Aduan">
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5 p-12 bg-slate-50 flex flex-col justify-center scroll-area overflow-y-auto">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-8 font-heading border-b pb-4">Fungsi Utama</h3>
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                            <h4 class="font-bold text-lg text-slate-800 mb-2 flex items-center gap-3"><i class="fas fa-bed text-indigo-500 text-xl"></i> Jadual Warden</h4>
+                            <p class="text-slate-600">Memaparkan jadual tugas warden asrama dalam format versi PDF secara susunan bulanan untuk rujukan staf dan pelajar.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-2 h-full bg-red-500"></div>
+                            <h4 class="font-bold text-lg text-slate-800 mb-2 flex items-center gap-3"><i class="fas fa-gavel text-red-500 text-xl"></i> e-Aduan Disiplin</h4>
+                            <p class="text-slate-600 text-sm mb-3">Borang digital khas untuk para guru merekodkan sebarang kes pelanggaran disiplin.</p>
+                            <div class="bg-red-50 text-red-700 text-xs p-3 rounded-lg border border-red-100 space-y-1 font-medium">
+                                <p><i class="fas fa-arrow-right"></i> Notifikasi dihantar terus ke Ketua Guru Disiplin apabila aduan direkod.</p>
+                                <p><i class="fas fa-arrow-right"></i> Laporan terus di-jana ke format PDF untuk arkib rekod.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: e-Relief -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-amber-400 to-amber-600 p-8 text-white flex flex-col justify-center text-center">
+                    <h2 class="text-4xl font-bold font-heading mb-2">9) e-Relief</h2>
+                    <p class="text-amber-50 text-sm mb-6 max-w-xs mx-auto">Sistem pengurusan guru ganti yang sangat interaktif dan automatik bagi kelas yang tiada guru.</p>
+                    <div class="relative w-56 rounded-[2rem] border-[6px] border-slate-800 shadow-2xl overflow-hidden bg-white z-10 mx-auto mt-2">
+                        <div class="absolute top-0 inset-x-0 h-4 bg-slate-800 rounded-b-xl w-1/3 mx-auto z-20"></div>
+                        <img src="pic/image_e39fca.png" alt="Submenu e-Relief" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5 p-12 bg-slate-50 flex flex-col justify-center scroll-area overflow-y-auto">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-heading border-b pb-4">Aliran Kerja (Workflow) e-Relief</h3>
+                    
+                    <div class="relative border-l-2 border-amber-300 ml-4 space-y-8 py-2">
+                        <div class="relative pl-6">
+                            <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-amber-500 ring-4 ring-slate-50"></div>
+                            <h4 class="font-bold text-slate-800 text-md">1. Rekod & Cadangan Automatik</h4>
+                            <p class="text-sm text-slate-600 mt-1">PIC merekod kelas kosong. Sistem secara automatik akan memaparkan <strong>hanya guru yang 'Free'</strong> pada waktu tersebut.</p>
+                        </div>
+                        <div class="relative pl-6">
+                            <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-amber-500 ring-4 ring-slate-50"></div>
+                            <h4 class="font-bold text-slate-800 text-md">2. Notifikasi Lantikan</h4>
+                            <p class="text-sm text-slate-600 mt-1">Guru yang dipilih menjadi guru ganti akan terus menerima notifikasi lantikan tugasan relief di telefon mereka.</p>
+                        </div>
+                        <div class="relative pl-6">
+                            <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-red-500 ring-4 ring-slate-50"></div>
+                            <h4 class="font-bold text-slate-800 text-md">3. Peringatan (Reminder) Terakhir</h4>
+                            <p class="text-sm text-slate-600 mt-1"><strong>10 minit</strong> sebelum masa kelas bermula, guru terbabit akan mendapat notifikasi 'reminder' untuk segera masuk ke kelas.</p>
+                        </div>
+                        <div class="relative pl-6">
+                            <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-slate-400 ring-4 ring-slate-50"></div>
+                            <h4 class="font-bold text-slate-800 text-md">4. Pelaporan Bulanan</h4>
+                            <p class="text-sm text-slate-600 mt-1">Data relief direkodkan mengikut bulan untuk tujuan pelaporan rasmi PIC Relief.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: e-Program -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-cyan-500 to-blue-500 p-8 text-white flex flex-col justify-center text-center items-center">
+                    <h2 class="text-4xl font-bold font-heading mb-2">10) e-Program</h2>
+                    <p class="text-cyan-50 text-sm mb-6 max-w-xs mx-auto">Papan buletin digital sehenti untuk menghebahkan acara rasmi sekolah.</p>
+                    <div class="relative w-56 rounded-[2rem] border-[6px] border-slate-800 shadow-2xl overflow-hidden bg-white z-10 mx-auto mt-2">
+                        <div class="absolute top-0 inset-x-0 h-4 bg-slate-800 rounded-b-xl w-1/3 mx-auto z-20"></div>
+                        <img src="pic/image_d93e46.png" alt="Paparan e-Program" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5 p-12 bg-slate-50 flex flex-col justify-center items-center text-center scroll-area overflow-y-auto">
+                    <div class="bg-white p-8 rounded-[2rem] shadow-lg border border-slate-100 w-full max-w-md">
+                        <div class="text-cyan-500 text-5xl mb-6"><i class="fas fa-image"></i></div>
+                        <h3 class="text-2xl font-bold text-slate-800 mb-4 font-heading">Maklumat Program Berpusat</h3>
+                        <p class="text-slate-600 leading-relaxed mb-6">Fungsi ringkas namun padat ini memaparkan dengan jelas maklumat acara yang akan berlangsung merangkumi:</p>
+                        
+                        <div class="flex flex-col gap-3 text-left w-full mx-auto max-w-xs">
+                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 flex items-center gap-3">
+                                <i class="fas fa-photo-video text-cyan-500"></i> <span>Poster Promosi</span>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 flex items-center gap-3">
+                                <i class="fas fa-calendar-day text-cyan-500"></i> <span>Tarikh & Masa Acara</span>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 flex items-center gap-3">
+                                <i class="fas fa-info-circle text-cyan-500"></i> <span>Butiran Lanjut Program</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 12: e-Tempah -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-fuchsia-600 to-purple-800 p-8 text-white flex flex-col justify-center text-center">
+                    <h2 class="text-4xl font-bold font-heading mb-2">11) e-Tempah</h2>
+                    <p class="text-fuchsia-100 text-sm mb-6 max-w-xs mx-auto">Sistem tempahan fasiliti & bilik sekolah dengan kawalan pertindihan masa.</p>
+                    <div class="relative w-56 rounded-[2rem] border-[6px] border-slate-800 shadow-2xl overflow-hidden bg-white z-10 mx-auto mt-2">
+                        <div class="absolute top-0 inset-x-0 h-4 bg-slate-800 rounded-b-xl w-1/3 mx-auto z-20"></div>
+                        <img src="pic/image_d94169.png" alt="Paparan e-Tempah" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5 p-12 bg-slate-50 flex flex-col justify-center scroll-area overflow-y-auto">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-8 font-heading border-b pb-4">Sistem Tempahan Pintar</h3>
+                    <div class="space-y-5">
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex items-start gap-4">
+                            <div class="mt-1 bg-fuchsia-100 text-fuchsia-600 p-2 rounded-lg"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Cegah Pertindihan (Clash Prevention)</h4>
+                                <p class="text-slate-600 text-sm mt-1">Guru boleh memilih masa dan tarikh. Sistem hanya akan memaparkan bilik fasiliti yang <strong>berstatus 'Available'</strong> (Kosong) sahaja pada waktu tersebut.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex items-start gap-4">
+                            <div class="mt-1 bg-amber-100 text-amber-600 p-2 rounded-lg"><i class="fas fa-bell"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Notifikasi PIC Bilik</h4>
+                                <p class="text-slate-600 text-sm mt-1">Person-in-charge (PIC) bagi setiap bilik fasiliti akan terus menerima notifikasi untuk merekodkan penggunaan bilik jagaan mereka.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex items-start gap-4">
+                            <div class="mt-1 bg-blue-100 text-blue-600 p-2 rounded-lg"><i class="fas fa-calendar-check"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Notifikasi Peringatan Penempah</h4>
+                                <p class="text-slate-600 text-sm mt-1">Guru yang telah berjaya membuat tempahan akan menerima notifikasi 'reminder' peringatan tentang tempahan bilik mereka apabila tarikh menghampiri.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 13: e-Exam -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-violet-600 to-indigo-800 p-8 text-white flex flex-col justify-center text-center">
+                    <h2 class="text-4xl font-bold font-heading mb-2">12) e-Exam</h2>
+                    <p class="text-violet-100 text-sm mb-6 max-w-xs mx-auto">Pusat pentadbiran peperiksaan merangkumi bank soalan dan sistem pengawasan dewan.</p>
+                    <div class="relative w-56 rounded-[2rem] border-[6px] border-slate-800 shadow-2xl overflow-hidden bg-white z-10 mx-auto mt-2">
+                        <div class="absolute top-0 inset-x-0 h-4 bg-slate-800 rounded-b-xl w-1/3 mx-auto z-20"></div>
+                        <img src="pic/image_e480c3.png" alt="Submenu e-Exam" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5 p-12 bg-slate-50 flex flex-col justify-center scroll-area overflow-y-auto">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-heading border-b pb-4">3 Bahagian Utama</h3>
+                    
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-1.5 h-full bg-violet-400"></div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-1 flex items-center gap-2"><i class="fas fa-upload text-violet-500"></i> Kertas Peperiksaan</h4>
+                            <p class="text-slate-600 text-sm">Ruang muat naik digital. Hanya Setiausaha Peperiksaan dalaman yang mengawal dan menyelaraskan penerimaan kertas soalan dari guru-guru.</p>
+                        </div>
+                        
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-1.5 h-full bg-rose-400"></div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-1 flex items-center gap-2"><i class="fas fa-user-clock text-rose-500"></i> Jadual Pengawas</h4>
+                            <p class="text-slate-600 text-sm mb-2">Paparan jadual khusus untuk guru yang bertugas mengawas sahaja (Digital & PDF).</p>
+                            <span class="inline-block bg-rose-50 text-rose-700 text-xs px-2 py-1 rounded font-bold border border-rose-100"><i class="fas fa-bell"></i> Peringatan automatik 10 minit awal sebelum masuk dewan.</span>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-1.5 h-full bg-blue-400"></div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-1 flex items-center gap-2"><i class="fas fa-table text-blue-500"></i> Jadual Peperiksaan</h4>
+                            <p class="text-slate-600 text-sm">Papan maklumat yang memaparkan jadual keseluruhan peperiksaan dalam versi PDF dan digital untuk rujukan umum sekolah.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 14: e-Pengumuman -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-emerald-400 to-green-600 p-8 text-white flex flex-col justify-center items-center text-center">
+                    <h2 class="text-4xl font-bold font-heading mb-2">13) e-Pengumuman</h2>
+                    <p class="text-emerald-50 text-sm mb-6 max-w-xs mx-auto">Sistem penyiaran informasi (broadcasting) dalaman sekolah.</p>
+                    <div class="relative w-56 rounded-[2rem] border-[6px] border-slate-800 shadow-2xl overflow-hidden bg-white z-10 mx-auto mt-2">
+                        <div class="absolute top-0 inset-x-0 h-4 bg-slate-800 rounded-b-xl w-1/3 mx-auto z-20"></div>
+                        <img src="pic/image_d941ca.png" alt="Paparan e-Pengumuman" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5 p-12 bg-slate-50 flex flex-col justify-center scroll-area overflow-y-auto">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-8 font-heading border-b pb-4">Ciri Penyiaran Bersasar</h3>
+                    
+                    <div class="bg-white p-8 rounded-[2rem] shadow-lg border border-slate-100">
+                        <p class="text-slate-600 mb-6">Guru atau staf boleh mencipta dan membuat pengumuman penting secara digital melalui aplikasi. Hebahan boleh dikawal mengikut dua kategori sasaran (Target):</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="bg-emerald-50 border border-emerald-100 p-4 rounded-xl text-center flex flex-col items-center">
+                                <i class="fas fa-users-class text-3xl text-emerald-500 mb-3"></i>
+                                <h4 class="font-bold text-emerald-800 text-sm">Kumpulan Pelajar</h4>
+                                <p class="text-xs text-emerald-600 mt-1">Dituju kepada spesifik kelas yang dipilih.</p>
+                            </div>
+                            <div class="bg-blue-50 border border-blue-100 p-4 rounded-xl text-center flex flex-col items-center">
+                                <i class="fas fa-user-tie text-3xl text-blue-500 mb-3"></i>
+                                <h4 class="font-bold text-blue-800 text-sm">Semua Staf</h4>
+                                <p class="text-xs text-blue-600 mt-1">Hebahan menyeluruh kepada kakitangan.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-slate-800 text-white p-4 rounded-xl text-center text-sm flex items-center justify-center gap-3">
+                            <i class="fas fa-mobile-alt text-emerald-400 text-xl"></i>
+                            Kumpulan sasaran akan menerima "Push Notification" pada peranti mereka.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 15: e-Kehadiran -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-sky-500 to-blue-600 p-8 text-white flex flex-col justify-center text-center">
+                    <h2 class="text-4xl font-bold font-heading mb-2">14) e-Kehadiran</h2>
+                    <p class="text-sky-100 text-sm mb-6 max-w-xs mx-auto">Modul pendaftaran kehadiran pelajar sewaktu perhimpunan rasmi / rollcall pagi.</p>
+                    <div class="relative w-56 rounded-[2rem] border-[6px] border-slate-800 shadow-2xl overflow-hidden bg-white z-10 mx-auto mt-2">
+                        <div class="absolute top-0 inset-x-0 h-4 bg-slate-800 rounded-b-xl w-1/3 mx-auto z-20"></div>
+                        <img src="pic/image_e3a07e.png" alt="Paparan e-Kehadiran" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5 p-12 bg-slate-50 flex flex-col justify-center scroll-area overflow-y-auto">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-heading border-b pb-4">Pengurusan Rollcall</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                            <h4 class="font-bold text-lg text-slate-800 mb-2 flex items-center gap-2"><i class="fas fa-user-check text-sky-500"></i> Rekod Guru Bertugas</h4>
+                            <p class="text-slate-600 text-sm">Modul ini dicipta khas untuk kegunaan Guru Bertugas dan Guru Kelas. Setiap pagi semasa 'Rollcall', Guru Bertugas akan mendigitalkan rekod kehadiran pelajar yang hadir dan ponteng.</p>
+                        </div>
+                        
+                        <div class="relative">
+                            <div class="absolute left-6 -top-4 w-1 h-8 bg-slate-200"></div>
+                            <div class="bg-gradient-to-r from-sky-50 to-white p-6 rounded-2xl shadow-sm border border-sky-100 relative z-10">
+                                <h4 class="font-bold text-lg text-sky-800 mb-2 flex items-center gap-2"><i class="fas fa-paper-plane text-sky-500"></i> Tindakan 'Submit' Makluman</h4>
+                                <p class="text-slate-600 text-sm">Setiap kali Guru Bertugas menekan butang <em>Submit</em> untuk menghantar data kehadiran, <strong>sistem akan menghantar notifikasi secara borong (broadcast)</strong> kepada semua staf sekolah sebagai makluman kehadiran harian pelajar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 16: e-Assembly -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-rose-500 to-red-600 p-8 text-white flex flex-col justify-center text-center">
+                    <h2 class="text-4xl font-bold font-heading mb-2">15) e-Assembly</h2>
+                    <p class="text-rose-100 text-sm mb-8 max-w-xs mx-auto">Pusat kawalan tugasan Guru Bertugas mingguan dan sistem pelaporan perhimpunan rasmi.</p>
+                    <div class="relative w-full h-64 flex justify-center items-center mt-2 z-10">
+                        <div class="absolute w-44 rounded-2xl border-4 border-slate-800 shadow-xl transform -rotate-6 -translate-x-10 bg-white overflow-hidden">
+                            <div class="absolute top-0 inset-x-0 h-3 bg-slate-800 rounded-b-lg w-1/3 mx-auto z-20"></div>
+                            <img src="pic/image_e41b70.png" class="w-full h-auto" alt="Jadual Guru Bertugas">
+                        </div>
+                        <div class="absolute w-44 rounded-2xl border-4 border-slate-800 shadow-2xl transform rotate-6 translate-x-10 bg-white overflow-hidden z-10">
+                            <div class="absolute top-0 inset-x-0 h-3 bg-slate-800 rounded-b-lg w-1/3 mx-auto z-20"></div>
+                            <img src="pic/image_e41be5.png" class="w-full h-auto" alt="Laporan Guru Bertugas">
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5 p-12 bg-slate-50 flex flex-col justify-center scroll-area overflow-y-auto">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-8 font-heading border-b pb-4">2 Bahagian e-Assembly</h3>
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-rose-500">
+                            <h4 class="font-bold text-xl text-slate-800 mb-2">1. Jadual Guru Bertugas</h4>
+                            <p class="text-slate-600 text-sm mb-3">Memaparkan secara digital senarai guru yang bertugas mengendalikan perhimpunan untuk setiap minggu.</p>
+                            <div class="inline-flex items-center gap-2 bg-slate-100 px-3 py-1.5 rounded-lg text-xs font-semibold text-rose-600 border border-slate-200">
+                                <i class="fas fa-clock"></i> Notifikasi Reminder: Dihantar secara automatik setiap hari Jumaat dan Ahad.
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-indigo-500">
+                            <h4 class="font-bold text-xl text-slate-800 mb-2">2. Laporan Guru Bertugas</h4>
+                            <p class="text-slate-600 text-sm mb-3">Borang pelaporan ucapan, perjalanan, dan ulasan perhimpunan mingguan.</p>
+                            <div class="inline-flex items-center gap-2 bg-indigo-50 px-3 py-1.5 rounded-lg text-xs font-semibold text-indigo-700 border border-indigo-100">
+                                <i class="fas fa-file-pdf"></i> Auto-Jana PDF: Format laporan ditukar ke PDF sejurus disahkan.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 17: e-Kesihatan -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-slate-600 to-slate-800 p-8 text-white flex flex-col justify-center text-center">
+                    <h2 class="text-4xl font-bold font-heading mb-2">16) e-Kesihatan</h2>
+                    <p class="text-slate-200 text-sm mb-6 max-w-xs mx-auto">Modul rekod kecemasan dan pemantauan status kesihatan pelajar di sekolah.</p>
+                    <div class="relative w-56 rounded-[2rem] border-[6px] border-slate-800 shadow-2xl overflow-hidden bg-white z-10 mx-auto mt-2">
+                        <div class="absolute top-0 inset-x-0 h-4 bg-slate-800 rounded-b-xl w-1/3 mx-auto z-20"></div>
+                        <img src="pic/image_e41885.png" alt="Senarai Pelajar Kesihatan" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5 p-12 bg-slate-50 flex flex-col justify-center scroll-area overflow-y-auto">
+                    <div class="bg-white p-8 rounded-[2rem] shadow-xl border border-slate-100 text-center max-w-md mx-auto relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-2 bg-rose-500"></div>
+                        <h3 class="text-2xl font-bold text-slate-800 mb-4 font-heading">Rekod Klinikal Pelajar</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">Fungsi ini dibina khusus untuk mendaftarkan dan merekod sekiranya terdapat mana-mana pelajar yang tidak sihat atau mengalami sakit pada waktu persekolahan.</p>
+                        
+                        <div class="bg-rose-50 rounded-xl p-5 border border-rose-100 text-left">
+                            <h4 class="font-bold text-rose-800 mb-2 flex items-center gap-2"><i class="fas fa-exclamation-triangle"></i> Tindakan Automatik Sistem:</h4>
+                            <p class="text-rose-700 text-sm">Serta-merta, sistem akan menghantar "Notifikasi Kecemasan" secara terus kepada:</p>
+                            <ul class="mt-3 space-y-2 text-sm font-semibold text-rose-900">
+                                <li class="flex items-center gap-2 bg-white px-3 py-2 rounded shadow-sm"><i class="fas fa-user-check text-slate-400"></i> 1. Guru Kelas Pelajar Terlibat</li>
+                                <li class="flex items-center gap-2 bg-white px-3 py-2 rounded shadow-sm"><i class="fas fa-user-nurse text-slate-400"></i> 2. PIC Guru Kesihatan Sekolah</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 18: e-Transport -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-amber-500 to-orange-600 p-8 text-white flex flex-col justify-center text-center">
+                    <h2 class="text-4xl font-bold font-heading mb-2">17) e-Transport</h2>
+                    <p class="text-amber-50 text-sm mb-6 max-w-xs mx-auto">Platform tempahan rasmi logistik (Van / Bas) yang dikawal rapi menerusi aliran kelulusan.</p>
+                    <div class="relative w-56 rounded-[2rem] border-[6px] border-slate-800 shadow-2xl overflow-hidden bg-white z-10 mx-auto mt-2">
+                        <div class="absolute top-0 inset-x-0 h-4 bg-slate-800 rounded-b-xl w-1/3 mx-auto z-20"></div>
+                        <img src="pic/image_e3a386.png" alt="Paparan e-Transport" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5 p-12 bg-slate-50 flex flex-col justify-center scroll-area overflow-y-auto">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-heading border-b pb-4">Aliran Proses Tempahan</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                            <div class="w-10 h-10 bg-slate-100 text-slate-600 rounded-full flex items-center justify-center font-bold font-heading">1</div>
+                            <div class="flex-grow">
+                                <h4 class="font-bold text-slate-800 text-sm">Permohonan</h4>
+                                <p class="text-slate-500 text-xs">Guru mengisi butiran tempahan ke destinasi.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-center -my-2 text-slate-300"><i class="fas fa-arrow-down"></i></div>
+                        
+                        <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                            <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold font-heading">2</div>
+                            <div class="flex-grow">
+                                <h4 class="font-bold text-blue-800 text-sm">Semakan Penyelaras</h4>
+                                <p class="text-slate-500 text-xs">Penyelaras tempahan bas/van dapat noti untuk menyemak jadual dan membuat pengesahan (Sahkan).</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-center -my-2 text-slate-300"><i class="fas fa-arrow-down"></i></div>
+                        
+                        <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                            <div class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center font-bold font-heading">3</div>
+                            <div class="flex-grow">
+                                <h4 class="font-bold text-emerald-800 text-sm">Kelulusan Mudir</h4>
+                                <p class="text-slate-500 text-xs">Mudir mendapat notifikasi akhir untuk menyemak dan memberi status 'Kelulusan'.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-center -my-2 text-slate-300"><i class="fas fa-arrow-down"></i></div>
+
+                        <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                            <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center font-bold font-heading">4</div>
+                            <div class="flex-grow">
+                                <h4 class="font-bold text-amber-800 text-sm">Pelaksanaan (Pemandu)</h4>
+                                <p class="text-slate-500 text-xs">Sebaik diluluskan, pemandu logistik akan mendapat notifikasi tugasan dan rekod jadual perjalanan rasmi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 19: e-Daurah -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-teal-600 to-emerald-800 p-8 text-white flex flex-col justify-center text-center">
+                    <h2 class="text-4xl font-bold font-heading mb-2">18) e-Daurah</h2>
+                    <p class="text-teal-100 text-sm mb-6 max-w-xs mx-auto">Modul kerohanian khusus untuk pengurusan program Daurah tahunan sekolah secara holistik.</p>
+                    <div class="relative w-56 rounded-[2rem] border-[6px] border-slate-800 shadow-2xl overflow-hidden bg-white z-10 mx-auto mt-2">
+                        <div class="absolute top-0 inset-x-0 h-4 bg-slate-800 rounded-b-xl w-1/3 mx-auto z-20"></div>
+                        <img src="pic/image_e417ae.png" alt="Submenu e-Daurah" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5 p-12 bg-slate-50 flex flex-col justify-center scroll-area overflow-y-auto">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-heading border-b pb-4">Kandungan Utama</h3>
+                    
+                    <div class="grid grid-cols-1 gap-5">
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex items-start gap-4">
+                            <div class="w-12 h-12 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center shrink-0"><i class="fas fa-calendar-alt text-xl"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-lg mb-1">1. Jadual Daurah</h4>
+                                <p class="text-slate-600 text-sm">Sistem memaparkan senarai jadual perancangan Daurah untuk sepanjang tahun.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex items-start gap-4">
+                            <div class="w-12 h-12 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center shrink-0"><i class="fas fa-info-circle text-xl"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-lg mb-1">2. Maklumat Butiran</h4>
+                                <p class="text-slate-600 text-sm">Menyajikan paparan poster digital rasmi program Daurah berserta butiran lanjut: Masa mula, Tempat acara, dan senarai nama Penceramah jemputan.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex items-start gap-4">
+                            <div class="w-12 h-12 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center shrink-0"><i class="fas fa-clipboard-check text-xl"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-lg mb-1">3. Kehadiran Daurah</h4>
+                                <p class="text-slate-600 text-sm">Borang digital yang berfungsi untuk merekodkan pengesahan dan kehadiran pelajar-pelajar yang menyertai program Daurah berkenaan.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 20: Ai Tools -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 p-8 text-white flex flex-col justify-center text-center relative overflow-hidden">
+                    <i class="fas fa-brain absolute left-[-20px] bottom-[-40px] text-9xl text-white opacity-10"></i>
+                    <h2 class="text-4xl font-bold font-heading mb-2 relative z-10">19) Ai Tools</h2>
+                    <p class="text-purple-200 text-sm mb-8 max-w-xs mx-auto relative z-10">Mengintegrasikan kuasa Kecerdasan Buatan (AI) termaju ke dalam 2 alat bantu inovatif PMA.</p>
+                    <div class="relative w-full h-64 flex justify-center items-center mt-2 z-10">
+                        <div class="absolute w-44 rounded-2xl border-4 border-slate-800 shadow-xl transform -rotate-6 -translate-x-10 bg-white overflow-hidden">
+                            <div class="absolute top-0 inset-x-0 h-3 bg-slate-800 rounded-b-lg w-1/3 mx-auto z-20"></div>
+                            <img src="pic/image_e4978f.png" class="w-full h-auto" alt="Tetapan Model Ai RPH">
+                        </div>
+                        <div class="absolute w-44 rounded-2xl border-4 border-slate-800 shadow-2xl transform rotate-6 translate-x-10 bg-white overflow-hidden z-10">
+                            <div class="absolute top-0 inset-x-0 h-3 bg-slate-800 rounded-b-lg w-1/3 mx-auto z-20"></div>
+                            <img src="pic/image_d99857.png" class="w-full h-auto" alt="Tanya Abqari AI">
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5 p-8 bg-slate-900 text-white flex-grow scroll-area overflow-y-auto">
+                    <div class="grid grid-cols-1 gap-8 h-full items-center py-4">
+                        
+                        <div class="bg-slate-800/80 p-6 rounded-3xl border border-slate-700 hover:bg-slate-800 transition shadow-[0_0_30px_rgba(59,130,246,0.15)] relative overflow-hidden flex flex-col gap-4">
+                            <div class="flex items-center gap-4">
+                                <div class="text-blue-400 text-4xl shrink-0"><i class="fas fa-chalkboard-teacher"></i></div>
+                                <h3 class="text-2xl font-bold font-heading text-white">Ai RPH</h3>
+                            </div>
+                            <div>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-4">Penolong maya yang dibangunkan khusus untuk membantu meringankan beban guru-guru dalam merangka draf Rancangan Pengajaran Harian (RPH) dengan idea yang dijana melalui enjin AI.</p>
+                                <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-700/50">
+                                    <p class="text-xs text-blue-300 font-semibold mb-3"><i class="fas fa-microchip mr-1"></i> Pilihan Model AI Tersedia:</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1.5 bg-blue-500/20 text-blue-300 text-xs font-bold rounded-lg border border-blue-500/30">GPT-OSS</span>
+                                        <span class="px-3 py-1.5 bg-purple-500/20 text-purple-300 text-xs font-bold rounded-lg border border-purple-500/30">GEMMA 4</span>
+                                        <span class="px-3 py-1.5 bg-emerald-500/20 text-emerald-300 text-xs font-bold rounded-lg border border-emerald-500/30">GLM 4.7</span>
+                                        <span class="px-3 py-1.5 bg-rose-500/20 text-rose-300 text-xs font-bold rounded-lg border border-rose-500/30">MINISTRAL 3</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-800/80 p-6 rounded-3xl border border-slate-700 hover:bg-slate-800 transition shadow-[0_0_30px_rgba(168,85,247,0.15)] relative overflow-hidden flex flex-col gap-4">
+                            <div class="flex items-center gap-4">
+                                <div class="text-purple-400 text-4xl shrink-0"><i class="fas fa-comment-dots"></i></div>
+                                <h3 class="text-2xl font-bold font-heading text-white">TANYA Abqari</h3>
+                            </div>
+                            <div>
+                                <p class="text-slate-400 text-sm leading-relaxed">Bot Pembantu AI (Chatbot) interaktif yang dilatih untuk menjawab semua persoalan lazim, isu teknikal, dan panduan pengoperasian mengenai Apps PMA IDigital secara langsung 24/7.</p>
+                                <div class="mt-4 bg-slate-900/80 p-3 rounded-xl border border-purple-500/30 flex items-center gap-3 inline-flex">
+                                    <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400">
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mb-0.5">Dikuasakan Oleh</p>
+                                        <p class="text-xs text-purple-300 font-bold">Model Gemini 2.5 Flash</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 21: e-Link -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-slate-600 to-slate-800 p-8 text-white flex flex-col justify-center text-center">
+                    <h2 class="text-4xl font-bold font-heading mb-2">20) e-Link</h2>
+                    <p class="text-slate-200 text-sm mb-6 max-w-xs mx-auto">Pusat pautan URL bersepadu untuk capaian pantas portal rasmi sekolah.</p>
+                    <div class="relative w-56 rounded-[2rem] border-[6px] border-slate-800 shadow-2xl overflow-hidden bg-white z-10 mx-auto mt-2">
+                        <div class="absolute top-0 inset-x-0 h-4 bg-slate-800 rounded-b-xl w-1/3 mx-auto z-20"></div>
+                        <img src="pic/image_e414c1.png" alt="Submenu e-Link" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5 p-12 bg-slate-50 flex flex-col justify-center scroll-area overflow-y-auto">
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
+                        <h4 class="font-bold text-2xl text-slate-800 mb-4 font-heading flex items-center gap-3"><i class="fas fa-external-link-alt text-blue-500"></i> Pautan Penting Sekolah</h4>
+                        <p class="text-slate-600 leading-relaxed">Modul e-Link berfungsi sebagai ruang direktori yang menghimpunkan kesemua pautan laman web/portal yang penting mengenai sekolah (contoh: portal KPM, laman e-operasi, portal ibu bapa) untuk akses sehenti dari dalam aplikasi sahaja.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 22: Sejarah Notifikasi -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-slate-800 to-black p-8 text-white flex flex-col justify-center text-center">
+                    <h2 class="text-4xl font-bold font-heading mb-2">21) Sejarah Notifikasi</h2>
+                    <p class="text-slate-300 text-sm mb-6 max-w-xs mx-auto">Log sistem terpusat yang merekodkan kesemua sejarah mesej dan pemberitahuan aplikasi.</p>
+                    <div class="relative w-56 rounded-[2rem] border-[6px] border-slate-800 shadow-2xl overflow-hidden bg-white z-10 mx-auto mt-2">
+                        <div class="absolute top-0 inset-x-0 h-4 bg-slate-800 rounded-b-xl w-1/3 mx-auto z-20"></div>
+                        <img src="pic/image_e4882c.png" alt="Sejarah Notifikasi" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5 p-12 bg-slate-50 flex flex-col justify-center scroll-area overflow-y-auto">
+                    <div class="bg-slate-800 p-8 rounded-3xl shadow-lg border border-slate-700 text-white relative overflow-hidden">
+                        <i class="fas fa-history absolute right-[-20px] bottom-[-20px] text-8xl text-slate-600 opacity-30"></i>
+                        <h4 class="font-bold text-2xl text-white mb-4 font-heading flex items-center gap-3 relative z-10"><i class="fas fa-bell text-amber-400"></i> Peti Masuk (Inbox)</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed relative z-10">Tahukah anda? PMA IDigital dilengkapi ciri log notifikasi berpusat.</p>
+                        <p class="text-slate-300 text-sm leading-relaxed relative z-10 mt-4">Setiap pemberitahuan, peringatan kelas, kelulusan tempahan, atau pengumuman yang dihantar ke telefon pintar anda akan turut <strong>disimpan sebagai rekod (history) di dalam apps</strong>.</p>
+                        <p class="text-slate-300 text-sm leading-relaxed relative z-10 mt-4">Ciri ini sangat penting bagi memastikan pengguna tidak akan terlepas sebarang makluman walaupun mereka telah secara tidak sengaja terpadam notifikasi di skrin utama (swiped-away) peranti mereka.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE BARU: BANTUAN & SOKONGAN -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh]">
+                <div class="w-full md:w-2/5 bg-gradient-to-br from-rose-600 to-red-800 p-12 text-white flex flex-col justify-center text-center items-center">
+                    <div class="w-32 h-32 bg-white/10 rounded-full flex items-center justify-center mb-8 backdrop-blur-md shadow-xl border border-white/20">
+                        <i class="fas fa-headset text-6xl text-rose-200"></i>
+                    </div>
+                    <h2 class="text-5xl font-bold font-heading mb-4">Bantuan & Sokongan</h2>
+                    <p class="text-rose-100 text-lg max-w-sm">Pusat bantuan teknikal untuk memastikan kelancaran operasi dan aplikasi anda.</p>
+                </div>
+                <div class="w-full md:w-3/5 p-12 bg-slate-50 flex flex-col justify-center scroll-area overflow-y-auto">
+                    <h3 class="text-3xl font-bold text-slate-800 mb-4 font-heading">Perlukan Bantuan?</h3>
+                    <p class="text-slate-600 mb-8 leading-relaxed">Sekiranya anda menghadapi sebarang masalah teknikal seperti aplikasi terhenti (crash), gagal log masuk e-mel, terlupa kata laluan, atau ingin mengemaskini nombor telefon rasmi, sila hubungi pasukan sokongan IT kami.</p>
+                    
+                    <div class="grid grid-cols-1 gap-5">
+                        <a href="https://wa.me/60182515675" target="_blank" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-emerald-500 hover:shadow-md transition-all flex items-center gap-6 group">
+                            <div class="bg-emerald-100 text-emerald-600 w-14 h-14 rounded-full flex items-center justify-center shrink-0 text-3xl group-hover:bg-emerald-500 group-hover:text-white transition-colors"><i class="fab fa-whatsapp"></i></div>
+                            <div>
+                                <h4 class="font-bold text-lg text-slate-800 mb-1">WhatsApp Admin Sistem</h4>
+                                <p class="text-slate-500 text-sm"><strong>60182515675</strong> (Klik untuk mesej terus ke meja bantuan IT).</p>
+                            </div>
+                        </a>
+                        
+                        <a href="mailto:smfakhrullah@maiwp.gov.my" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-6 group">
+                            <div class="bg-blue-100 text-blue-600 w-14 h-14 rounded-full flex items-center justify-center shrink-0 text-2xl group-hover:bg-blue-500 group-hover:text-white transition-colors"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h4 class="font-bold text-lg text-slate-800 mb-1">E-mel Rasmi IT</h4>
+                                <p class="text-slate-500 text-sm"><strong>smfakhrullah@maiwp.gov.my</strong> (Hantarkan aduan berserta tangkap layar ralat).</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 23: PENUTUP -->
+        <div class="slide">
+            <div class="max-w-6xl w-full bg-gradient-to-tr from-emerald-600 via-teal-500 to-cyan-500 rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col justify-center items-center h-[85vh] text-center p-12 text-white relative">
+                <!-- Decorative backgrounds -->
+                <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3N2Zz4=')]"></div>
+                <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-white/20 rounded-full blur-3xl"></div>
+                <div class="absolute -top-40 -right-40 w-96 h-96 bg-black/10 rounded-full blur-3xl"></div>
+                
+                <div class="w-36 h-36 rounded-[2rem] flex items-center justify-center mb-8 shadow-2xl relative z-10 overflow-hidden border border-white/20 transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <img src="pic/PMA LOGO 4.png" alt="Logo PMA IDigital" class="w-full h-full object-cover scale-[1.02]">
+                </div>
+                
+                <h2 class="text-5xl font-bold font-heading mb-6 relative z-10">Sedia Untuk Menjana Kecemerlangan</h2>
+                <p class="text-xl max-w-2xl font-light text-emerald-50 leading-relaxed relative z-10 mb-12">Dengan 20 modul pintar terbina di dalam PMA IDigital, kami komited mengurangkan beban kerja manual dan meningkatkan keberkesanan pentadbiran sekolah berasaskan kecerdasan digital masa hadapan.</p>
+                
+                <div class="flex gap-4 relative z-10">
+                    <button onclick="goToSlide(0)" class="bg-white text-emerald-700 hover:bg-slate-100 font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:-translate-y-1">
+                        <i class="fas fa-redo-alt mr-2"></i> Kembali ke Mula
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- End of slideContainer -->
+
+    <!-- QUICK MENU MODAL (Navigasi Pantas) -->
+    <div id="quickMenuModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white w-11/12 max-w-5xl rounded-[2.5rem] p-8 shadow-2xl relative max-h-[90vh] flex flex-col border border-white/20">
+            <button onclick="toggleMenu()" class="absolute top-6 right-6 w-12 h-12 bg-slate-100 hover:bg-red-100 text-slate-500 hover:text-red-500 rounded-full flex items-center justify-center transition-colors text-xl shadow-sm z-10">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 class="text-3xl font-bold font-heading mb-6 text-slate-800 border-b pb-4"><i class="fas fa-th-large text-blue-500 mr-3"></i>Navigasi Pantas Modul</h2>
+            
+            <div class="overflow-y-auto scroll-area pr-2 flex-grow">
+                
+                <!-- Seksyen 1 -->
+                <div class="mb-6">
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Pengenalan & Panduan</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <button onclick="goToSlide(0); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-semibold text-slate-700"><i class="fas fa-home w-6 text-slate-400"></i> Cover Depan</button>
+                        <button onclick="goToSlide(1); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-semibold text-slate-700"><i class="fas fa-download w-6 text-emerald-400"></i> Akses & Pasang</button>
+                        <button onclick="goToSlide(2); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-semibold text-slate-700"><i class="fas fa-lightbulb w-6 text-amber-400"></i> Tips AppSheet</button>
+                        <button onclick="goToSlide(3); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-semibold text-slate-700"><i class="fas fa-sitemap w-6 text-indigo-400"></i> Hierarki Akses</button>
+                    </div>
+                </div>
+                
+                <!-- Seksyen 2 -->
+                <div class="mb-6">
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Modul Utama (1 - 20)</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+                        <button onclick="goToSlide(4); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-bold text-slate-700"><span class="text-blue-500 mr-2">1</span> e-Profil</button>
+                        <button onclick="goToSlide(5); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-bold text-slate-700"><span class="text-emerald-500 mr-2">2</span> Kehadiran Staf</button>
+                        <button onclick="goToSlide(6); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-bold text-slate-700"><span class="text-amber-500 mr-2">3</span> e-Taqwim</button>
+                        <button onclick="goToSlide(7); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-bold text-slate-700"><span class="text-teal-500 mr-2">4</span> e-Huffaz</button>
+                        <button onclick="goToSlide(8); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-bold text-slate-700"><span class="text-indigo-500 mr-2">5</span> e-Jadual</button>
+                        <button onclick="goToSlide(9); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-bold text-slate-700"><span class="text-rose-500 mr-2">6</span> e-Class</button>
+                        <button onclick="goToSlide(10); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-bold text-slate-700"><span class="text-orange-500 mr-2">7</span> e-KOKO</button>
+                        <button onclick="goToSlide(11); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-bold text-slate-700"><span class="text-red-500 mr-2">8</span> e-Hep</button>
+                        <button onclick="goToSlide(12); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-bold text-slate-700"><span class="text-amber-600 mr-2">9</span> e-Relief</button>
+                        <button onclick="goToSlide(13); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-bold text-slate-700"><span class="text-cyan-500 mr-2">10</span> e-Program</button>
+                        <button onclick="goToSlide(14); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-bold text-slate-700"><span class="text-fuchsia-500 mr-2">11</span> e-Tempah</button>
+                        <button onclick="goToSlide(15); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-bold text-slate-700"><span class="text-violet-500 mr-2">12</span> e-Exam</button>
+                        <button onclick="goToSlide(16); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-bold text-slate-700"><span class="text-emerald-600 mr-2">13</span> Hebahan</button>
+                        <button onclick="goToSlide(17); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-bold text-slate-700"><span class="text-sky-500 mr-2">14</span> e-Kehadiran</button>
+                        <button onclick="goToSlide(18); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-bold text-slate-700"><span class="text-rose-600 mr-2">15</span> e-Assembly</button>
+                        <button onclick="goToSlide(19); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-bold text-slate-700"><span class="text-slate-500 mr-2">16</span> e-Kesihatan</button>
+                        <button onclick="goToSlide(20); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-bold text-slate-700"><span class="text-amber-500 mr-2">17</span> Transport</button>
+                        <button onclick="goToSlide(21); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-bold text-slate-700"><span class="text-teal-600 mr-2">18</span> e-Daurah</button>
+                        <button onclick="goToSlide(22); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-bold text-slate-700"><span class="text-purple-500 mr-2">19</span> Ai Tools</button>
+                        <button onclick="goToSlide(23); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-bold text-slate-700"><span class="text-slate-700 mr-2">20</span> e-Link</button>
+                    </div>
+                </div>
+
+                <!-- Seksyen 3 -->
+                <div>
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Sokongan & Penutup</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <button onclick="goToSlide(24); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-semibold text-slate-700"><i class="fas fa-history w-6 text-slate-500"></i> Sejarah Notifikasi</button>
+                        <button onclick="goToSlide(25); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-semibold text-slate-700"><i class="fas fa-headset w-6 text-rose-500"></i> Bantuan IT</button>
+                        <button onclick="goToSlide(26); toggleMenu()" class="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-colors text-sm font-semibold text-slate-700"><i class="fas fa-check-circle w-6 text-emerald-500"></i> Penutup</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logic Script -->
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const slideNumDisplay = document.getElementById('currentSlideNum');
+        const totalSlidesDisplay = document.getElementById('totalSlides');
+        
+        let currentSlide = 0;
+        const totalSlidesCount = slides.length;
+        totalSlidesDisplay.textContent = totalSlidesCount;
+
+        function updateSlider() {
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+            slideNumDisplay.textContent = currentSlide + 1;
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlidesCount - 1;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) { currentSlide--; updateSlider(); }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < totalSlidesCount - 1) { currentSlide++; updateSlider(); }
+        });
+
+        function goToSlide(index) {
+            if(index >= 0 && index < totalSlidesCount) {
+                currentSlide = index;
+                updateSlider();
+            }
+        }
+
+        // Logic Navigasi Pantas (Modal Toggle)
+        function toggleMenu() {
+            const modal = document.getElementById('quickMenuModal');
+            if(modal.classList.contains('opacity-0')) {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        // Keyboard Navigation Controls
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('quickMenuModal');
+            const isModalOpen = !modal.classList.contains('opacity-0');
+            
+            // Tutup modal jika butang ESC ditekan
+            if(e.key === 'Escape' && isModalOpen) {
+                toggleMenu();
+                return;
+            }
+
+            // Jangan pergi ke slide seterusnya jika modal terbuka
+            if (!isModalOpen) {
+                if (e.key === 'ArrowRight' || e.key === ' ') {
+                    if (currentSlide < totalSlidesCount - 1) { currentSlide++; updateSlider(); }
+                } else if (e.key === 'ArrowLeft') {
+                    if (currentSlide > 0) { currentSlide--; updateSlider(); }
+                }
+            }
+        });
+
+        updateSlider();
+    </script>
+</body>
+</html>
