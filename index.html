@@ -48,6 +48,29 @@
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
+        
+        /* Transition for Simulation Image */
+        .fade-in {
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0.2; transform: scale(0.98); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* FAQ Accordion Smooth Dropdown */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 1.5rem;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 <body class="text-slate-800 antialiased bg-slate-50">
@@ -60,11 +83,13 @@
                     <img src="pic/PMA LOGO 4.png" alt="Logo PMA" class="h-12 w-12 object-contain">
                     <span class="font-heading font-bold text-2xl tracking-tight text-brand-900">PMA<span class="text-brand-500">IDigital</span></span>
                 </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#utama" class="text-slate-600 hover:text-brand-500 font-medium transition-colors">Utama</a>
-                    <a href="#modul" class="text-slate-600 hover:text-brand-500 font-medium transition-colors">Modul Pintar</a>
-                    <a href="#ai" class="text-slate-600 hover:text-brand-500 font-medium transition-colors">Integrasi AI</a>
-                    <a href="#hubungi" class="text-slate-600 hover:text-brand-500 font-medium transition-colors">Hubungi</a>
+                <div class="hidden lg:flex space-x-6">
+                    <a href="#utama" class="text-slate-600 hover:text-brand-500 font-medium transition-colors text-sm">Utama</a>
+                    <a href="#modul" class="text-slate-600 hover:text-brand-500 font-medium transition-colors text-sm">Modul</a>
+                    <a href="#simulasi" class="text-slate-600 hover:text-brand-500 font-medium transition-colors text-sm">Simulasi</a>
+                    <a href="#ai" class="text-slate-600 hover:text-brand-500 font-medium transition-colors text-sm">AI</a>
+                    <a href="#faq" class="text-slate-600 hover:text-brand-500 font-medium transition-colors text-sm">FAQ</a>
+                    <a href="#hubungi" class="text-slate-600 hover:text-brand-500 font-medium transition-colors text-sm">Hubungi</a>
                 </div>
                 <div class="hidden md:flex">
                     <a href="#muat-turun" class="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2.5 rounded-full font-bold transition-colors shadow-md shadow-brand-500/30">
@@ -72,7 +97,7 @@
                     </a>
                 </div>
                 <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
+                <div class="lg:hidden flex items-center">
                     <button class="text-slate-600 hover:text-brand-600 focus:outline-none">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
@@ -106,8 +131,8 @@
                         <a href="#muat-turun" class="bg-brand-600 hover:bg-brand-700 text-white px-8 py-3.5 rounded-full font-bold text-lg transition-all shadow-lg shadow-brand-500/30 flex items-center justify-center gap-2">
                             <i class="fas fa-download"></i> Pasang Aplikasi
                         </a>
-                        <a href="#modul" class="bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-8 py-3.5 rounded-full font-bold text-lg transition-all flex items-center justify-center gap-2">
-                            Lihat Modul <i class="fas fa-arrow-right"></i>
+                        <a href="#simulasi" class="bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-8 py-3.5 rounded-full font-bold text-lg transition-all flex items-center justify-center gap-2">
+                            Cuba Simulasi <i class="fas fa-play"></i>
                         </a>
                     </div>
                     <div class="mt-10 flex items-center justify-center lg:justify-start gap-6 text-slate-500 text-sm font-medium">
@@ -140,7 +165,7 @@
                         <i class="fas fa-chalkboard-teacher"></i>
                     </div>
                     <h4 class="text-xl font-bold font-heading text-slate-900 mb-3 relative z-10">e-Class & e-Jadual</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4 relative z-10">Pengurusan bilik darjah komprehensif. Merekod kawalan kelas (Auto-PDF), penjadualan Kelas Intervensi, Swap Kelas antara guru (Notifikasi Setuju/Tolak), memaparkan jadual waktu guru berserta peringatan 10 minit sebelum kelas.</p>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4 relative z-10">Pengurusan bilik darjah komprehensif. Merekod kawalan kelas (Auto-PDF), penjadualan Kelas Intervensi, Swap Kelas (Notifikasi), memaparkan jadual waktu guru berserta peringatan awal.</p>
                 </div>
 
                 <!-- Card 2 -->
@@ -196,6 +221,82 @@
         </div>
     </section>
 
+    <!-- Interactive App Simulation Section -->
+    <section id="simulasi" class="py-20 bg-brand-50 border-t border-brand-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-sm font-bold text-brand-600 uppercase tracking-widest mb-2">Pratonton Langsung</h2>
+                <h3 class="text-4xl font-extrabold font-heading text-slate-900 mb-4">Alami Sendiri PMA IDigital</h3>
+                <p class="text-slate-600 text-lg">Pilih mana-mana modul di bawah untuk melihat rupa sebenar antara muka (UI) aplikasi pada peranti mudah alih anda.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Left: Module Buttons -->
+                <div class="lg:col-span-7 flex flex-col gap-3">
+                    <button onclick="changeSimulasi('pic/image_d92efd.png', this)" class="sim-btn text-left p-5 rounded-2xl border-2 border-brand-500 bg-white shadow-md transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-home"></i></div>
+                        <div>
+                            <h4 class="font-bold text-lg text-slate-800">Menu Utama</h4>
+                            <p class="text-sm text-slate-500 hidden sm:block">Paparan antaramuka utama yang menyenaraikan kesemua 20 modul PMA IDigital.</p>
+                        </div>
+                    </button>
+
+                    <button onclick="changeSimulasi('pic/image_d9335a.png', this)" class="sim-btn text-left p-5 rounded-2xl border-2 border-transparent bg-white/60 hover:bg-white hover:border-slate-200 transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-calendar-alt"></i></div>
+                        <div>
+                            <h4 class="font-bold text-lg text-slate-800">e-Taqwim</h4>
+                            <p class="text-sm text-slate-500 hidden sm:block">Kalendar program tahunan sekolah. Tekan tarikh untuk melihat butiran.</p>
+                        </div>
+                    </button>
+
+                    <button onclick="changeSimulasi('pic/image_d936dc.png', this)" class="sim-btn text-left p-5 rounded-2xl border-2 border-transparent bg-white/60 hover:bg-white hover:border-slate-200 transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-user-graduate"></i></div>
+                        <div>
+                            <h4 class="font-bold text-lg text-slate-800">e-Class (Maklumat Pelajar)</h4>
+                            <p class="text-sm text-slate-500 hidden sm:block">Direktori profil pelajar berserta butang pintas E-mel, Panggilan, dan WhatsApp terus.</p>
+                        </div>
+                    </button>
+
+                    <button onclick="changeSimulasi('pic/image_d93a66.png', this)" class="sim-btn text-left p-5 rounded-2xl border-2 border-transparent bg-white/60 hover:bg-white hover:border-slate-200 transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-running"></i></div>
+                        <div>
+                            <h4 class="font-bold text-lg text-slate-800">e-Koko</h4>
+                            <p class="text-sm text-slate-500 hidden sm:block">Sistem pengurusan data, kehadiran dan pelaporan kokurikulum.</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="changeSimulasi('pic/image_d99857.png', this)" class="sim-btn text-left p-5 rounded-2xl border-2 border-transparent bg-white/60 hover:bg-white hover:border-slate-200 transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-robot"></i></div>
+                        <div>
+                            <h4 class="font-bold text-lg text-slate-800">TANYA Abqari (AI Bot)</h4>
+                            <p class="text-sm text-slate-500 hidden sm:block">Chatbot berkuasa Gemini yang sentiasa bersedia menjawab soalan pengoperasian anda.</p>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Right: Phone Mockup -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <!-- Generic Modern Phone Frame (Android Style) - Bingkai Nipis -->
+                    <div class="relative w-[320px] h-[650px] bg-slate-800 rounded-[2.5rem] p-1.5 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] border-2 border-slate-600 flex flex-col items-center">
+                        <!-- Camera Punch Hole -->
+                        <div class="absolute top-4 w-3 h-3 bg-black rounded-full z-20 shadow-inner"></div>
+                        
+                        <!-- Top Speaker Slit -->
+                        <div class="absolute top-2 w-10 h-1 bg-slate-700 rounded-full z-20"></div>
+                        
+                        <!-- Screen Content -->
+                        <div class="w-full h-full bg-slate-50 rounded-[2.2rem] overflow-hidden relative">
+                            <!-- Gambar kini lebih lebar dan tidak terpotong (bingkai nipis) -->
+                            <img id="simulasiImage" src="pic/image_d92efd.png" alt="Simulasi App" class="w-full h-full object-cover object-top fade-in">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- AI Features Section -->
     <section id="ai" class="py-20 bg-slate-900 text-white relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3N2Zz4=')]"></div>
@@ -246,7 +347,7 @@
                     </div>
                 </div>
                 
-                <div class="flex justify-center relative">
+                <div class="flex justify-center relative hidden lg:flex">
                     <div class="relative w-64 rounded-[2.5rem] border-8 border-slate-800 shadow-2xl bg-white overflow-hidden transform -rotate-6 hover:rotate-0 transition-transform duration-500 z-20">
                         <div class="absolute top-0 inset-x-0 h-5 bg-slate-800 rounded-b-2xl w-1/3 mx-auto z-20"></div>
                         <img src="pic/image_e4978f.png" alt="AI RPH Tetapan" class="w-full h-auto">
@@ -260,8 +361,97 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <h2 class="text-sm font-bold text-brand-500 uppercase tracking-widest mb-2">Bantuan Pantas</h2>
+                <h3 class="text-4xl font-extrabold font-heading text-slate-900">Soalan Lazim (FAQ)</h3>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 (BARU) -->
+                <div class="faq-item bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="flex justify-between items-center p-6" onclick="toggleFaq(this.parentElement)">
+                        <h4 class="font-bold text-lg text-brand-600">Siapakah yang boleh memuat turun dan mengakses aplikasi ini?</h4>
+                        <i class="fas fa-chevron-down text-brand-400 transition-transform duration-300 faq-icon"></i>
+                    </div>
+                    <div class="faq-answer px-6 text-slate-600 text-sm">
+                        <p class="border-t border-slate-200 pt-4">Aplikasi ini adalah eksklusif untuk kegunaan dalaman. <strong>Hanya guru dan staf rasmi Pondok Moden al-'Abaqirah sahaja</strong> yang dibenarkan untuk memuat turun, melog masuk, dan mengakses pangkalan data di dalam sistem ini.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="flex justify-between items-center p-6" onclick="toggleFaq(this.parentElement)">
+                        <h4 class="font-bold text-lg text-slate-800">Bagaimana jika saya tidak menerima push notification?</h4>
+                        <i class="fas fa-chevron-down text-slate-400 transition-transform duration-300 faq-icon"></i>
+                    </div>
+                    <div class="faq-answer px-6 text-slate-600 text-sm">
+                        <p class="border-t border-slate-200 pt-4">Sila pastikan anda telah memberi kebenaran <strong>"Allow Notifications"</strong> kepada aplikasi AppSheet di dalam tetapan (Settings) telefon pintar anda. Sistem kami sangat bergantung pada ciri ini untuk menghantar peringatan kelas dan pengumuman.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="flex justify-between items-center p-6" onclick="toggleFaq(this.parentElement)">
+                        <h4 class="font-bold text-lg text-slate-800">Bolehkah saya menggunakan aplikasi ini tanpa internet (offline)?</h4>
+                        <i class="fas fa-chevron-down text-slate-400 transition-transform duration-300 faq-icon"></i>
+                    </div>
+                    <div class="faq-answer px-6 text-slate-600 text-sm">
+                        <p class="border-t border-slate-200 pt-4">Ya, namun dengan fungsi terhad. Kami sangat menyarankan anda mempunyai sambungan internet supaya aplikasi dapat membuat fungsi <strong>"Sync"</strong> bagi merekod data anda ke awan (cloud) dan memaparkan jadual yang paling terkini.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="flex justify-between items-center p-6" onclick="toggleFaq(this.parentElement)">
+                        <h4 class="font-bold text-lg text-slate-800">Saya tidak jumpa butang 'Edit' atau 'Delete', adakah aplikasi saya rosak?</h4>
+                        <i class="fas fa-chevron-down text-slate-400 transition-transform duration-300 faq-icon"></i>
+                    </div>
+                    <div class="faq-answer px-6 text-slate-600 text-sm">
+                        <p class="border-t border-slate-200 pt-4">Tidak. PMA IDigital dilengkapi ciri <strong>Kawalan Hierarki Akses</strong>. Butang-butang kritikal seperti itu hanya akan dipaparkan mengikut bidang kuasa dan tugasan rasmi peranan anda (contohnya: Penyelaras, Guru Kelas, atau Admin).</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="flex justify-between items-center p-6" onclick="toggleFaq(this.parentElement)">
+                        <h4 class="font-bold text-lg text-slate-800">Bagaimana jika saya tersilap menghantar laporan e-Koko?</h4>
+                        <i class="fas fa-chevron-down text-slate-400 transition-transform duration-300 faq-icon"></i>
+                    </div>
+                    <div class="faq-answer px-6 text-slate-600 text-sm">
+                        <p class="border-t border-slate-200 pt-4">Sebaik sahaja butang 'Submit' ditekan, sistem akan menguncinya dan Auto-PDF akan dijana. Sila hubungi terus pihak Admin IT PMA (menggunakan ruangan Hubungi di bawah) untuk membatalkan (reset) rekod tersebut.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 (BARU) -->
+                <div class="faq-item bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="flex justify-between items-center p-6" onclick="toggleFaq(this.parentElement)">
+                        <h4 class="font-bold text-lg text-slate-800">Adakah data pelajar dan rekod sekolah di dalam sistem ini selamat?</h4>
+                        <i class="fas fa-chevron-down text-slate-400 transition-transform duration-300 faq-icon"></i>
+                    </div>
+                    <div class="faq-answer px-6 text-slate-600 text-sm">
+                        <p class="border-t border-slate-200 pt-4">Sudah tentu. Infrastruktur PMA IDigital dibina sepenuhnya di atas pelayan awan Google Workspace (Google Cloud) yang mematuhi standard sekuriti gred perusahaan global. Data ini hanya boleh diakses melalui log masuk e-mel rasmi (domain) sekolah.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7 (BARU) -->
+                <div class="faq-item bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="flex justify-between items-center p-6" onclick="toggleFaq(this.parentElement)">
+                        <h4 class="font-bold text-lg text-slate-800">Di manakah saya boleh menukar kata laluan (password)?</h4>
+                        <i class="fas fa-chevron-down text-slate-400 transition-transform duration-300 faq-icon"></i>
+                    </div>
+                    <div class="faq-answer px-6 text-slate-600 text-sm">
+                        <p class="border-t border-slate-200 pt-4">Sistem ini diintegrasikan dengan e-mel rasmi. Sebarang pertukaran kata laluan perlulah dilakukan menerusi pengurusan akaun Google (Gmail) anda. Jika anda terlupa maklumat log masuk, sila laporkan kepada Sokongan IT di ruangan Hubungi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Download Section -->
-    <section id="muat-turun" class="py-20 bg-slate-50">
+    <section id="muat-turun" class="py-20 bg-slate-50 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-gradient-to-r from-brand-600 to-cyan-600 rounded-[3rem] p-10 lg:p-16 text-center text-white shadow-2xl relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl"></div>
@@ -354,8 +544,9 @@
         </div>
     </footer>
 
-    <!-- Script for Navbar scroll effect -->
+    <!-- Interactive Scripts -->
     <script>
+        // Navbar Scroll Effect
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 10) {
@@ -366,6 +557,45 @@
                 navbar.style.background = 'rgba(255, 255, 255, 0.8)';
             }
         });
+
+        // App Simulation Function
+        function changeSimulasi(imgSrc, btnElement) {
+            // Update Image
+            const imgEl = document.getElementById('simulasiImage');
+            
+            // Remove animation class to restart it
+            imgEl.classList.remove('fade-in');
+            
+            // Small timeout to allow browser to register class removal before adding it back
+            setTimeout(() => {
+                imgEl.src = imgSrc;
+                imgEl.classList.add('fade-in');
+            }, 50);
+
+            // Update Active Button Styles
+            const allBtns = document.querySelectorAll('.sim-btn');
+            allBtns.forEach(btn => {
+                // Reset to inactive state
+                btn.className = "sim-btn text-left p-5 rounded-2xl border-2 border-transparent bg-white/60 hover:bg-white hover:border-slate-200 transition-all flex items-center gap-4 group";
+            });
+
+            // Set active state
+            btnElement.className = "sim-btn text-left p-5 rounded-2xl border-2 border-brand-500 bg-white shadow-md transition-all flex items-center gap-4 group";
+        }
+
+        // FAQ Accordion Function
+        function toggleFaq(selectedItem) {
+            // Close all other items
+            const allItems = document.querySelectorAll('.faq-item');
+            allItems.forEach(item => {
+                if (item !== selectedItem) {
+                    item.classList.remove('active');
+                }
+            });
+
+            // Toggle selected item
+            selectedItem.classList.toggle('active');
+        }
     </script>
 </body>
 </html>
