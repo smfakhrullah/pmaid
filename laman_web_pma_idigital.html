@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ms" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMA IDigital - Sistem Pengurusan Sekolah Pintar</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230ea5e9' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased bg-slate-50">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3">
+                    <img src="pic/PMA LOGO 4.png" alt="Logo PMA" class="h-12 w-12 object-contain">
+                    <span class="font-heading font-bold text-2xl tracking-tight text-brand-900">PMA<span class="text-brand-500">IDigital</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#utama" class="text-slate-600 hover:text-brand-500 font-medium transition-colors">Utama</a>
+                    <a href="#modul" class="text-slate-600 hover:text-brand-500 font-medium transition-colors">Modul Pintar</a>
+                    <a href="#ai" class="text-slate-600 hover:text-brand-500 font-medium transition-colors">Integrasi AI</a>
+                    <a href="#hubungi" class="text-slate-600 hover:text-brand-500 font-medium transition-colors">Hubungi</a>
+                </div>
+                <div class="hidden md:flex">
+                    <a href="#muat-turun" class="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2.5 rounded-full font-bold transition-colors shadow-md shadow-brand-500/30">
+                        Muat Turun
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-slate-600 hover:text-brand-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="utama" class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden hero-pattern">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand-100 blur-3xl opacity-50 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-emerald-100 blur-3xl opacity-50 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 text-brand-600 font-semibold text-sm mb-6 border border-brand-100">
+                        <span class="relative flex h-3 w-3">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-500"></span>
+                        </span>
+                        Sistem Bersepadu AppSheet
+                    </div>
+                    <h1 class="text-5xl lg:text-6xl font-extrabold font-heading text-slate-900 leading-tight mb-6">
+                        Revolusi Digital <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-cyan-500">Pondok Moden Al-'Abaqirah</span>
+                    </h1>
+                    <p class="text-lg text-slate-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        PMA IDigital mengintegrasikan 20 modul pengurusan sekolah dalam satu ekosistem pintar. Dari kehadiran staf hingga sistem akademik dan AI, semuanya di hujung jari anda.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#muat-turun" class="bg-brand-600 hover:bg-brand-700 text-white px-8 py-3.5 rounded-full font-bold text-lg transition-all shadow-lg shadow-brand-500/30 flex items-center justify-center gap-2">
+                            <i class="fas fa-download"></i> Pasang Aplikasi
+                        </a>
+                        <a href="#modul" class="bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-8 py-3.5 rounded-full font-bold text-lg transition-all flex items-center justify-center gap-2">
+                            Lihat Modul <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="mt-10 flex items-center justify-center lg:justify-start gap-6 text-slate-500 text-sm font-medium">
+                        <div class="flex items-center gap-2"><i class="fas fa-check-circle text-emerald-500"></i> Auto-PDF</div>
+                        <div class="flex items-center gap-2"><i class="fas fa-check-circle text-emerald-500"></i> Push Notifikasi</div>
+                        <div class="flex items-center gap-2"><i class="fas fa-check-circle text-emerald-500"></i> Sokongan AI</div>
+                    </div>
+                </div>
+                <div class="relative mx-auto w-full max-w-md lg:max-w-none flex justify-center lg:justify-end">
+                    <img src="pic/PMAIDigital Screen02.png" alt="Paparan PMA IDigital" class="w-full max-w-sm h-auto drop-shadow-[0_25px_35px_rgba(2,132,199,0.25)] hover:-translate-y-2 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modul Utama Highlights -->
+    <section id="modul" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-sm font-bold text-brand-500 uppercase tracking-widest mb-2">Ekosistem Pintar</h2>
+                <h3 class="text-4xl font-extrabold font-heading text-slate-900 mb-4">20 Modul Pengurusan Bersepadu</h3>
+                <p class="text-slate-600 text-lg">PMA IDigital direka untuk memudahkan operasi harian guru, pelajar dan pentadbiran melalui automasi dan pangkalan data berpusat.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 card-hover relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-100 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-2xl text-blue-500 mb-6 relative z-10">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h4 class="text-xl font-bold font-heading text-slate-900 mb-3 relative z-10">e-Class & e-Jadual</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4 relative z-10">Pengurusan bilik darjah komprehensif. Merekod kawalan kelas (Auto-PDF), memaparkan jadual waktu guru dan pelajar berserta peringatan 10 minit sebelum kelas bermula.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 card-hover relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-amber-100 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-2xl text-amber-500 mb-6 relative z-10">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h4 class="text-xl font-bold font-heading text-slate-900 mb-3 relative z-10">e-KOKO</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4 relative z-10">Sistem kokurikulum yang menguruskan kehadiran, data ahli badan beruniform/kelab, serta pelaporan aktiviti mingguan dan luar yang dijanakan terus ke format PDF.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 card-hover relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-100 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-2xl text-emerald-500 mb-6 relative z-10">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h4 class="text-xl font-bold font-heading text-slate-900 mb-3 relative z-10">e-Relief & Tempah</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4 relative z-10">Automasi lantikan guru ganti mengikut ketersediaan waktu, dan sistem tempahan fasiliti pintar yang mencegah pertindihan (clash) jadual penggunaan bilik.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 card-hover relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-rose-100 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-2xl text-rose-500 mb-6 relative z-10">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <h4 class="text-xl font-bold font-heading text-slate-900 mb-3 relative z-10">e-Exam & e-Huffaz</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4 relative z-10">Pusat pemantauan akademik. Memuat naik kertas peperiksaan, peringatan jadual pengawas, serta sistem rekod halaqah untuk merekod muka surat hafazan pelajar.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 card-hover relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-purple-100 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-2xl text-purple-500 mb-6 relative z-10">
+                        <i class="fas fa-broadcast-tower"></i>
+                    </div>
+                    <h4 class="text-xl font-bold font-heading text-slate-900 mb-3 relative z-10">Komunikasi Pintar</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4 relative z-10">Dilengkapi dengan e-Pengumuman untuk hebahan bersasar, fungsi panggilan/WhatsApp terus melalui e-Profil, dan Sejarah Notifikasi (Inbox) yang tidak akan hilang.</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 card-hover relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-red-100 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-2xl text-red-500 mb-6 relative z-10">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="text-xl font-bold font-heading text-slate-900 mb-3 relative z-10">Operasi & Logistik</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4 relative z-10">Rangkuman modul e-Hep (Disiplin), e-Kesihatan (Notifikasi Kecemasan Klinikal), dan e-Transport (Aliran kelulusan tempahan bas/van).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Features Section -->
+    <section id="ai" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3N2Zz4=')]"></div>
+        <div class="absolute -right-40 -bottom-40 w-96 h-96 bg-brand-500 rounded-full blur-[100px] opacity-30"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-800 text-brand-300 font-semibold text-sm mb-6 border border-slate-700">
+                        <i class="fas fa-robot"></i> Teknologi Terkini
+                    </div>
+                    <h2 class="text-4xl lg:text-5xl font-extrabold font-heading mb-6">Dikuasakan oleh Kecerdasan Buatan (AI)</h2>
+                    <p class="text-slate-300 text-lg mb-10 leading-relaxed">
+                        PMA IDigital tidak hanya mengurus data, ia membantu anda berfikir. Kami mengintegrasikan model bahasa AI yang canggih untuk meringankan beban kerja guru dan memberi respons pantas.
+                    </p>
+
+                    <div class="space-y-8">
+                        <!-- AI Feature 1 -->
+                        <div class="flex gap-4 items-start">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-500/20 text-brand-400 flex items-center justify-center shrink-0 text-2xl border border-brand-500/30">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold font-heading mb-2">Ai RPH (Rancangan Pengajaran Harian)</h4>
+                                <p class="text-slate-400 text-sm mb-3">Penolong maya untuk menjana draf RPH. Pilih model AI yang bersesuaian dengan keperluan anda:</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-slate-800 text-brand-300 text-xs font-bold rounded border border-slate-700">GPT-OSS</span>
+                                    <span class="px-3 py-1 bg-slate-800 text-purple-300 text-xs font-bold rounded border border-slate-700">GEMMA 4</span>
+                                    <span class="px-3 py-1 bg-slate-800 text-emerald-300 text-xs font-bold rounded border border-slate-700">GLM 4.7</span>
+                                    <span class="px-3 py-1 bg-slate-800 text-rose-300 text-xs font-bold rounded border border-slate-700">MINISTRAL 3</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI Feature 2 -->
+                        <div class="flex gap-4 items-start">
+                            <div class="w-12 h-12 rounded-2xl bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0 text-2xl border border-purple-500/30">
+                                <i class="fas fa-comment-dots"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold font-heading mb-2">TANYA Abqari (Chatbot 24/7)</h4>
+                                <p class="text-slate-400 text-sm mb-3">Bot pintar yang bersedia menjawab pertanyaan anda berkenaan pengoperasian sekolah dan aplikasi PMA IDigital.</p>
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-500/10 text-purple-300 text-xs font-bold rounded border border-purple-500/20">
+                                    <i class="fas fa-bolt"></i> Enjin Gemini 2.5 Flash
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center relative">
+                    <div class="relative w-64 rounded-[2.5rem] border-8 border-slate-800 shadow-2xl bg-white overflow-hidden transform -rotate-6 hover:rotate-0 transition-transform duration-500 z-20">
+                        <div class="absolute top-0 inset-x-0 h-5 bg-slate-800 rounded-b-2xl w-1/3 mx-auto z-20"></div>
+                        <img src="pic/image_e4978f.png" alt="AI RPH Tetapan" class="w-full h-auto">
+                    </div>
+                    <div class="absolute w-64 rounded-[2.5rem] border-8 border-slate-800 shadow-2xl bg-white overflow-hidden transform rotate-6 translate-x-16 translate-y-12 z-10">
+                        <div class="absolute top-0 inset-x-0 h-5 bg-slate-800 rounded-b-2xl w-1/3 mx-auto z-20"></div>
+                        <img src="pic/image_d99857.png" alt="Tanya Abqari" class="w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="muat-turun" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-brand-600 to-cyan-600 rounded-[3rem] p-10 lg:p-16 text-center text-white shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-black opacity-10 rounded-full blur-3xl"></div>
+                
+                <h2 class="text-4xl font-extrabold font-heading mb-4 relative z-10">Akses PMA IDigital Hari Ini</h2>
+                <p class="text-brand-100 text-lg mb-10 max-w-2xl mx-auto relative z-10">Sistem ini dibina di atas platform AppSheet. Sila pilih cara pemasangan yang sesuai dengan peranti anda.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto relative z-10">
+                    <!-- Mobile Card -->
+                    <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all text-left">
+                        <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-3xl mb-6"><i class="fas fa-mobile-alt"></i></div>
+                        <h3 class="text-2xl font-bold font-heading mb-2">Telefon Pintar</h3>
+                        <p class="text-brand-100 text-sm mb-6">Sesuai untuk kegunaan harian, terima notifikasi, dan akses pantas (iOS & Android).</p>
+                        <a href="https://www.appsheet.com/newshortcut/ca9f692a-0d4c-4db5-95bd-592024607d66" target="_blank" class="inline-block w-full text-center bg-white text-brand-700 font-bold py-3 px-6 rounded-xl hover:bg-slate-50 transition-colors shadow-md">
+                            Install on Mobile
+                        </a>
+                        <p class="text-xs text-brand-200 mt-3 text-center">*Sila muat turun app 'AppSheet' terlebih dahulu.</p>
+                    </div>
+
+                    <!-- Web Card -->
+                    <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all text-left">
+                        <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-3xl mb-6"><i class="fas fa-laptop"></i></div>
+                        <h3 class="text-2xl font-bold font-heading mb-2">Pelayar Web</h3>
+                        <p class="text-brand-100 text-sm mb-6">Sesuai untuk paparan skrin besar, tugas menaip, pelaporan, dan muat turun PDF.</p>
+                        <a href="https://www.appsheet.com/start/ca9f692a-0d4c-4db5-95bd-592024607d66" target="_blank" class="inline-block w-full text-center bg-transparent border-2 border-white text-white font-bold py-3 px-6 rounded-xl hover:bg-white/10 transition-colors shadow-md">
+                            Open in Browser
+                        </a>
+                        <p class="text-xs text-brand-200 mt-3 text-center">*Gunakan Google Chrome atau Safari.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Contact -->
+    <footer id="hubungi" class="bg-white border-t border-slate-200 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-1 lg:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="pic/PMA LOGO 4.png" alt="Logo PMA" class="h-10 w-10 object-contain">
+                        <span class="font-heading font-bold text-xl tracking-tight text-brand-900">PMA<span class="text-brand-500">IDigital</span></span>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed max-w-sm mb-6">
+                        Sistem Pengurusan Sekolah Komprehensif Pondok Moden Al-'Abaqirah. Mengoptimumkan potensi pendidikan melalui teknologi automasi.
+                    </p>
+                    <div class="flex space-x-4 text-slate-400">
+                        <a href="#" class="hover:text-brand-500 transition-colors"><i class="fab fa-facebook text-xl"></i></a>
+                        <a href="#" class="hover:text-brand-500 transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="hover:text-brand-500 transition-colors"><i class="fas fa-globe text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-slate-900 font-heading mb-4">Sokongan IT</h4>
+                    <ul class="space-y-3 text-sm text-slate-500">
+                        <li>
+                            <a href="https://wa.me/60182515675" target="_blank" class="hover:text-brand-500 transition-colors flex items-center gap-2">
+                                <i class="fab fa-whatsapp text-emerald-500"></i> WhatsApp: 018-2515675
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:smfakhrullah@maiwp.gov.my" class="hover:text-brand-500 transition-colors flex items-center gap-2">
+                                <i class="fas fa-envelope text-brand-500"></i> smfakhrullah@maiwp.gov.my
+                            </a>
+                        </li>
+                        <li class="pt-2">
+                            <span class="block text-xs text-slate-400">Waktu Operasi Bantuan:</span>
+                            <span class="block text-xs font-semibold">Isnin - Jumaat (8:00 AM - 5:00 PM)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-900 font-heading mb-4">Pautan Pantas</h4>
+                    <ul class="space-y-3 text-sm text-slate-500">
+                        <li><a href="#utama" class="hover:text-brand-500 transition-colors">Utama</a></li>
+                        <li><a href="#modul" class="hover:text-brand-500 transition-colors">Modul Aplikasi</a></li>
+                        <li><a href="#ai" class="hover:text-brand-500 transition-colors">Teknologi AI</a></li>
+                        <li><a href="pma_idigital_premium.html" target="_blank" class="hover:text-brand-500 transition-colors flex items-center gap-1 font-semibold text-brand-600"><i class="fas fa-external-link-alt"></i> Baca Dokumentasi Penuh</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+                <p>&copy; 2026 PMA IDigital - Pondok Moden Al-'Abaqirah. Hak Cipta Terpelihara.</p>
+                <p>Dibangunkan dengan platform <a href="https://www.appsheet.com" class="hover:text-brand-500 font-semibold" target="_blank">Google AppSheet</a>.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for Navbar scroll effect -->
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-md');
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.style.background = 'rgba(255, 255, 255, 0.8)';
+            }
+        });
+    </script>
+</body>
+</html>
