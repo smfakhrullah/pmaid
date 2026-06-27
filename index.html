@@ -71,7 +71,7 @@
             transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
         }
         .faq-item.active .faq-answer {
-            max-height: 200px;
+            max-height: 250px;
             padding-bottom: 1.5rem;
         }
         .faq-item.active .faq-icon {
@@ -112,15 +112,15 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="utama" class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden hero-pattern">
+    <!-- Hero Section (Dwi-Peranti / Cross-Platform Mockup) -->
+    <section id="utama" class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden hero-pattern">
         <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand-100 blur-3xl opacity-50 pointer-events-none"></div>
         <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-emerald-100 blur-3xl opacity-50 pointer-events-none"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 text-brand-600 font-semibold text-sm mb-6 border border-brand-100">
+                <div class="text-center lg:text-left z-20">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 text-brand-600 font-semibold text-sm mb-6 border border-brand-100 shadow-sm">
                         <span class="relative flex h-3 w-3">
                           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
                           <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-500"></span>
@@ -131,7 +131,7 @@
                         Revolusi Digital <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-cyan-500">Pondok Moden Al-'Abaqirah</span>
                     </h1>
                     <p class="text-lg text-slate-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                        PMA IDigital mengintegrasikan 20 modul pengurusan sekolah dalam satu ekosistem pintar. Dari kehadiran staf hingga sistem akademik dan AI, semuanya di hujung jari anda.
+                        PMA IDigital mengintegrasikan 20 modul pengurusan sekolah dalam satu ekosistem pintar. Sedia diakses melalui telefon pintar untuk mobiliti, dan komputer untuk pengurusan data.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                         <a href="#muat-turun" class="bg-brand-600 hover:bg-brand-700 text-white px-8 py-3.5 rounded-full font-bold text-lg transition-all shadow-lg shadow-brand-500/30 flex items-center justify-center gap-2">
@@ -142,13 +142,31 @@
                         </a>
                     </div>
                     <div class="mt-10 flex items-center justify-center lg:justify-start gap-6 text-slate-500 text-sm font-medium">
-                        <div class="flex items-center gap-2"><i class="fas fa-check-circle text-emerald-500"></i> Auto-PDF</div>
-                        <div class="flex items-center gap-2"><i class="fas fa-check-circle text-emerald-500"></i> Push Notifikasi</div>
-                        <div class="flex items-center gap-2"><i class="fas fa-check-circle text-emerald-500"></i> Sokongan AI</div>
+                        <div class="flex items-center gap-2"><i class="fas fa-mobile-alt text-emerald-500 text-lg"></i> Mobile</div>
+                        <div class="flex items-center gap-2"><i class="fas fa-laptop text-emerald-500 text-lg"></i> Desktop Browser</div>
                     </div>
                 </div>
-                <div class="relative mx-auto w-full max-w-md lg:max-w-none flex justify-center lg:justify-end">
-                    <img src="pic/PMAIDigital Screen02.png" alt="Paparan PMA IDigital" class="w-full max-w-sm h-auto drop-shadow-[0_25px_35px_rgba(2,132,199,0.25)] hover:-translate-y-2 transition-transform duration-500">
+                
+                <!-- Cross-Platform Mockup Showcase (Animasi Bertukar) -->
+                <div class="relative mx-auto w-full max-w-md lg:max-w-lg flex justify-center items-center mt-10 lg:mt-0 h-[350px] md:h-[450px]">
+                    
+                    <!-- Phone Mockup -->
+                    <div id="hero-phone" class="absolute transition-all duration-1000 ease-in-out transform opacity-100 scale-100 z-20 w-48 sm:w-56 md:w-64">
+                        <img src="pic/PMAIDigital Screen02.png" alt="Paparan PMA IDigital Mobile" class="w-full h-auto drop-shadow-[0_35px_35px_rgba(2,132,199,0.4)]">
+                    </div>
+
+                    <!-- Laptop Mockup -->
+                    <div id="hero-desktop" class="absolute transition-all duration-1000 ease-in-out transform opacity-0 scale-95 z-10 w-[300px] sm:w-[380px] md:w-[480px]">
+                        <div class="bg-slate-800 p-2 md:p-3 rounded-t-xl border-4 border-slate-700 shadow-2xl">
+                            <div class="bg-white rounded-sm overflow-hidden aspect-video relative">
+                                <img src="pic/image_53e059.png" alt="PMA IDigital Desktop" class="w-full h-full object-cover object-left-top">
+                            </div>
+                        </div>
+                        <div class="bg-slate-400 h-3 md:h-5 rounded-b-xl relative z-20 shadow-2xl flex justify-center">
+                            <div class="w-1/4 h-1 md:h-1.5 bg-slate-300 rounded-b-sm mt-0.5 md:mt-1"></div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -171,7 +189,7 @@
                         <i class="fas fa-chalkboard-teacher"></i>
                     </div>
                     <h4 class="text-xl font-bold font-heading text-slate-900 mb-3 relative z-10">e-Class & e-Jadual</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4 relative z-10">Pengurusan bilik darjah komprehensif. Merekod kawalan kelas (Auto-PDF), penjadualan Kelas Intervensi, Swap Kelas (Notifikasi), memaparkan jadual waktu guru berserta peringatan awal.</p>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4 relative z-10">Pengurusan bilik darjah komprehensif. Merekod kawalan kelas (Auto-PDF), penjadualan Kelas Intervensi, Swap Kelas (Notifikasi Setuju/Tolak), memaparkan jadual waktu guru berserta peringatan 10 minit sebelum kelas.</p>
                 </div>
 
                 <!-- Card 2 -->
@@ -264,7 +282,6 @@
                         </div>
                     </button>
 
-                    <!-- BARU: SWAP KELAS -->
                     <button onclick="changeSimulasi('pic/ffef004.png', this)" class="sim-btn text-left p-5 rounded-2xl border-2 border-transparent bg-white/60 hover:bg-white hover:border-slate-200 transition-all flex items-center gap-4 group">
                         <div class="w-12 h-12 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-exchange-alt"></i></div>
                         <div>
@@ -289,7 +306,6 @@
                         </div>
                     </button>
                     
-                    <!-- BARU: e-Relief -->
                     <button onclick="changeSimulasi('pic/sdf003.png', this)" class="sim-btn text-left p-5 rounded-2xl border-2 border-transparent bg-white/60 hover:bg-white hover:border-slate-200 transition-all flex items-center gap-4 group">
                         <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-user-clock"></i></div>
                         <div>
@@ -298,7 +314,6 @@
                         </div>
                     </button>
 
-                    <!-- BARU: e-Tempah -->
                     <button onclick="changeSimulasi('pic/asdd001.png', this)" class="sim-btn text-left p-5 rounded-2xl border-2 border-transparent bg-white/60 hover:bg-white hover:border-slate-200 transition-all flex items-center gap-4 group">
                         <div class="w-12 h-12 rounded-full bg-fuchsia-100 text-fuchsia-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-calendar-check"></i></div>
                         <div>
@@ -336,7 +351,6 @@
                         
                         <!-- Screen Content -->
                         <div class="w-full h-full bg-slate-50 rounded-[2.2rem] overflow-hidden relative">
-                            <!-- Gambar kini lebih lebar dan tidak terpotong (bingkai nipis) -->
                             <img id="simulasiImage" src="pic/image_d92efd.png" alt="Simulasi App" class="w-full h-full object-cover object-top fade-in">
                         </div>
                     </div>
@@ -419,7 +433,7 @@
             </div>
 
             <div class="space-y-4">
-                <!-- FAQ Item 1 (BARU) -->
+                <!-- FAQ Item 1 -->
                 <div class="faq-item bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden cursor-pointer">
                     <div class="flex justify-between items-center p-6" onclick="toggleFaq(this.parentElement)">
                         <h4 class="font-bold text-lg text-brand-600">Siapakah yang boleh memuat turun dan mengakses aplikasi ini?</h4>
@@ -474,7 +488,7 @@
                     </div>
                 </div>
 
-                <!-- FAQ Item 6 (BARU) -->
+                <!-- FAQ Item 6 -->
                 <div class="faq-item bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden cursor-pointer">
                     <div class="flex justify-between items-center p-6" onclick="toggleFaq(this.parentElement)">
                         <h4 class="font-bold text-lg text-slate-800">Adakah data pelajar dan rekod sekolah di dalam sistem ini selamat?</h4>
@@ -485,7 +499,7 @@
                     </div>
                 </div>
 
-                <!-- FAQ Item 7 (BARU) -->
+                <!-- FAQ Item 7 -->
                 <div class="faq-item bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden cursor-pointer">
                     <div class="flex justify-between items-center p-6" onclick="toggleFaq(this.parentElement)">
                         <h4 class="font-bold text-lg text-slate-800">Di manakah saya boleh menukar kata laluan (password)?</h4>
@@ -645,6 +659,32 @@
             // Toggle selected item
             selectedItem.classList.toggle('active');
         }
+
+        // Animasi Hero Mockup (Tukar Phone <-> Desktop)
+        document.addEventListener('DOMContentLoaded', () => {
+            const phoneMockup = document.getElementById('hero-phone');
+            const desktopMockup = document.getElementById('hero-desktop');
+            let showPhone = true;
+
+            setInterval(() => {
+                if (showPhone) {
+                    // Fade ke Desktop
+                    phoneMockup.classList.remove('opacity-100', 'scale-100', 'z-20');
+                    phoneMockup.classList.add('opacity-0', 'scale-95', 'z-10');
+                    
+                    desktopMockup.classList.remove('opacity-0', 'scale-95', 'z-10');
+                    desktopMockup.classList.add('opacity-100', 'scale-100', 'z-20');
+                } else {
+                    // Fade ke Phone
+                    desktopMockup.classList.remove('opacity-100', 'scale-100', 'z-20');
+                    desktopMockup.classList.add('opacity-0', 'scale-95', 'z-10');
+                    
+                    phoneMockup.classList.remove('opacity-0', 'scale-95', 'z-10');
+                    phoneMockup.classList.add('opacity-100', 'scale-100', 'z-20');
+                }
+                showPhone = !showPhone;
+            }, 3500); // Bertukar secara automatik setiap 3.5 saat
+        });
     </script>
 </body>
 </html>
