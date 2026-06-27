@@ -49,6 +49,12 @@
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         
+        /* Custom Scrollbar for Buttons */
+        .scroll-area::-webkit-scrollbar { width: 6px; }
+        .scroll-area::-webkit-scrollbar-track { background: transparent; }
+        .scroll-area::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .scroll-area::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
         /* Transition for Simulation Image */
         .fade-in {
             animation: fadeIn 0.4s ease-in-out;
@@ -232,8 +238,8 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                 
-                <!-- Left: Module Buttons -->
-                <div class="lg:col-span-7 flex flex-col gap-3">
+                <!-- Left: Module Buttons (Scrollable) -->
+                <div class="lg:col-span-7 flex flex-col gap-3 max-h-[600px] overflow-y-auto pr-4 scroll-area">
                     <button onclick="changeSimulasi('pic/image_d92efd.png', this)" class="sim-btn text-left p-5 rounded-2xl border-2 border-brand-500 bg-white shadow-md transition-all flex items-center gap-4 group">
                         <div class="w-12 h-12 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-home"></i></div>
                         <div>
@@ -249,12 +255,29 @@
                             <p class="text-sm text-slate-500 hidden sm:block">Kalendar program tahunan sekolah. Tekan tarikh untuk melihat butiran.</p>
                         </div>
                     </button>
-
-                    <button onclick="changeSimulasi('pic/image_d936dc.png', this)" class="sim-btn text-left p-5 rounded-2xl border-2 border-transparent bg-white/60 hover:bg-white hover:border-slate-200 transition-all flex items-center gap-4 group">
-                        <div class="w-12 h-12 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-user-graduate"></i></div>
+                    
+                    <button onclick="changeSimulasi('pic/asd002.png', this)" class="sim-btn text-left p-5 rounded-2xl border-2 border-transparent bg-white/60 hover:bg-white hover:border-slate-200 transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-clock"></i></div>
                         <div>
-                            <h4 class="font-bold text-lg text-slate-800">e-Class (Maklumat Pelajar)</h4>
-                            <p class="text-sm text-slate-500 hidden sm:block">Direktori profil pelajar berserta butang pintas E-mel, Panggilan, dan WhatsApp terus.</p>
+                            <h4 class="font-bold text-lg text-slate-800">e-Jadual (Real-time)</h4>
+                            <p class="text-sm text-slate-500 hidden sm:block">Paparan dinamik memaparkan senarai kelas yang sedang berlangsung ketika ini.</p>
+                        </div>
+                    </button>
+
+                    <!-- BARU: SWAP KELAS -->
+                    <button onclick="changeSimulasi('pic/ffef004.png', this)" class="sim-btn text-left p-5 rounded-2xl border-2 border-transparent bg-white/60 hover:bg-white hover:border-slate-200 transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-exchange-alt"></i></div>
+                        <div>
+                            <h4 class="font-bold text-lg text-slate-800">e-Class (Swap Kelas)</h4>
+                            <p class="text-sm text-slate-500 hidden sm:block">Borang permohonan pertukaran sesi mengajar guru yang memaparkan pengesanan konflik slot automatik.</p>
+                        </div>
+                    </button>
+
+                    <button onclick="changeSimulasi('pic/06.png', this)" class="sim-btn text-left p-5 rounded-2xl border-2 border-transparent bg-white/60 hover:bg-white hover:border-slate-200 transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-book"></i></div>
+                        <div>
+                            <h4 class="font-bold text-lg text-slate-800">e-Class (Jadual Tuisyen)</h4>
+                            <p class="text-sm text-slate-500 hidden sm:block">Pemantauan jadual kelas tuisyen berserta sistem peringatan (reminder) berjadual.</p>
                         </div>
                     </button>
 
@@ -263,6 +286,32 @@
                         <div>
                             <h4 class="font-bold text-lg text-slate-800">e-Koko</h4>
                             <p class="text-sm text-slate-500 hidden sm:block">Sistem pengurusan data, kehadiran dan pelaporan kokurikulum.</p>
+                        </div>
+                    </button>
+                    
+                    <!-- BARU: e-Relief -->
+                    <button onclick="changeSimulasi('pic/sdf003.png', this)" class="sim-btn text-left p-5 rounded-2xl border-2 border-transparent bg-white/60 hover:bg-white hover:border-slate-200 transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-user-clock"></i></div>
+                        <div>
+                            <h4 class="font-bold text-lg text-slate-800">e-Relief Semasa</h4>
+                            <p class="text-sm text-slate-500 hidden sm:block">Senarai maklumat terkini jadual guru ganti yang beroperasi.</p>
+                        </div>
+                    </button>
+
+                    <!-- BARU: e-Tempah -->
+                    <button onclick="changeSimulasi('pic/asdd001.png', this)" class="sim-btn text-left p-5 rounded-2xl border-2 border-transparent bg-white/60 hover:bg-white hover:border-slate-200 transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 rounded-full bg-fuchsia-100 text-fuchsia-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-calendar-check"></i></div>
+                        <div>
+                            <h4 class="font-bold text-lg text-slate-800">e-Tempah</h4>
+                            <p class="text-sm text-slate-500 hidden sm:block">Pemantauan rekod tempahan fasiliti dengan indikator pencegah pertindihan masa.</p>
+                        </div>
+                    </button>
+
+                    <button onclick="changeSimulasi('pic/02.png', this)" class="sim-btn text-left p-5 rounded-2xl border-2 border-transparent bg-white/60 hover:bg-white hover:border-slate-200 transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-clipboard-user"></i></div>
+                        <div>
+                            <h4 class="font-bold text-lg text-slate-800">e-Exam (Jadual Pengawas)</h4>
+                            <p class="text-sm text-slate-500 hidden sm:block">Paparan jadual khusus untuk guru pengawas peperiksaan berserta status tugas.</p>
                         </div>
                     </button>
                     
