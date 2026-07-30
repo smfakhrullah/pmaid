@@ -1226,6 +1226,19 @@
         let currentSlide = 0;
         const totalSlidesCount = slides.length;
         totalSlidesDisplay.textContent = totalSlidesCount;
+        const preloadedSlides = new Set();
+
+        // Preload images for a slide so next/prev flips feel smoother
+        function preloadSlideImages(index) {
+            if (index < 0 || index >= totalSlidesCount || preloadedSlides.has(index)) return;
+            preloadedSlides.add(index);
+            slides[index].querySelectorAll('img[src]').forEach((img) => {
+                const src = img.getAttribute('src');
+                if (!src) return;
+                const preloader = new Image();
+                preloader.src = src;
+            });
+        }
 
         function updateSlider() {
             slides.forEach((slide, index) => {
@@ -1241,6 +1254,11 @@
             slideNumDisplay.textContent = currentSlide + 1;
             prevBtn.disabled = currentSlide === 0;
             nextBtn.disabled = currentSlide === totalSlidesCount - 1;
+
+            // Warm cache for current + neighboring slides
+            preloadSlideImages(currentSlide);
+            preloadSlideImages(currentSlide + 1);
+            preloadSlideImages(currentSlide - 1);
         }
 
         prevBtn.addEventListener('click', () => {
