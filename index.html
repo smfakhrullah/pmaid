@@ -79,35 +79,59 @@
         }
     </style>
 </head>
-<body class="text-slate-800 antialiased bg-slate-50">
+<body class="text-slate-800 antialiased bg-slate-50 relative">
 
     <!-- Navigation Bar -->
-    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+    <nav class="fixed w-full z-[100] glass-nav transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-3 relative z-[101]">
                     <img src="pic/PMA LOGO 4.png" alt="Logo PMA" class="h-12 w-12 object-contain">
                     <span class="font-heading font-bold text-2xl tracking-tight text-brand-900">PMA<span class="text-brand-500">IDigital</span></span>
                 </div>
-                <div class="hidden lg:flex space-x-6">
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-6 items-center">
                     <a href="#utama" class="text-slate-600 hover:text-brand-500 font-medium transition-colors text-sm">Utama</a>
                     <a href="#modul" class="text-slate-600 hover:text-brand-500 font-medium transition-colors text-sm">Modul</a>
                     <a href="#simulasi" class="text-slate-600 hover:text-brand-500 font-medium transition-colors text-sm">Simulasi</a>
                     <a href="#ai" class="text-slate-600 hover:text-brand-500 font-medium transition-colors text-sm">AI</a>
                     <a href="#faq" class="text-slate-600 hover:text-brand-500 font-medium transition-colors text-sm">FAQ</a>
-                    <a href="#hubungi" class="text-slate-600 hover:text-brand-500 font-medium transition-colors text-sm">Hubungi</a>
+                    <!-- NEW DOCS LINK -->
+                    <a href="user_guide.html" target="_blank" class="text-brand-600 hover:text-brand-800 font-bold transition-colors text-sm flex items-center gap-1.5 px-3 py-1.5 bg-brand-50 rounded-lg border border-brand-100">
+                        <i class="fas fa-book-open"></i> Docs
+                    </a>
                 </div>
                 <div class="hidden md:flex">
                     <a href="#muat-turun" class="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2.5 rounded-full font-bold transition-colors shadow-md shadow-brand-500/30">
                         Muat Turun
                     </a>
                 </div>
-                <!-- Mobile menu button -->
-                <div class="lg:hidden flex items-center">
-                    <button class="text-slate-600 hover:text-brand-600 focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center relative z-[101]">
+                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="text-slate-600 hover:text-brand-600 focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl" id="mobileMenuIcon"></i>
                     </button>
                 </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobileDropdown" class="fixed inset-0 bg-white z-[90] transform -translate-y-full transition-transform duration-300 ease-in-out lg:hidden pt-24 px-6 pb-6 overflow-y-auto">
+            <div class="flex flex-col space-y-6 text-center">
+                <a href="#utama" onclick="toggleMobileMenu()" class="text-slate-800 text-xl font-bold font-heading hover:text-brand-500">Utama</a>
+                <a href="#modul" onclick="toggleMobileMenu()" class="text-slate-800 text-xl font-bold font-heading hover:text-brand-500">Modul Aplikasi</a>
+                <a href="#simulasi" onclick="toggleMobileMenu()" class="text-slate-800 text-xl font-bold font-heading hover:text-brand-500">Pratonton Simulasi</a>
+                <a href="#ai" onclick="toggleMobileMenu()" class="text-slate-800 text-xl font-bold font-heading hover:text-brand-500">Ciri AI</a>
+                <a href="#faq" onclick="toggleMobileMenu()" class="text-slate-800 text-xl font-bold font-heading hover:text-brand-500">Soalan Lazim (FAQ)</a>
+                <div class="w-16 h-px bg-slate-200 mx-auto my-2"></div>
+                <a href="user_guide.html" target="_blank" onclick="toggleMobileMenu()" class="text-brand-600 text-xl font-bold font-heading flex items-center justify-center gap-2">
+                    <i class="fas fa-book-open"></i> Buka Dokumentasi
+                </a>
+                <a href="#muat-turun" onclick="toggleMobileMenu()" class="bg-brand-600 text-white px-8 py-3 rounded-full font-bold mx-auto mt-4 inline-block">
+                    Muat Turun Sekarang
+                </a>
             </div>
         </div>
     </nav>
@@ -658,6 +682,27 @@
 
             // Toggle selected item
             selectedItem.classList.toggle('active');
+        }
+
+        // Mobile Menu Toggle Function
+        function toggleMobileMenu() {
+            const dropdown = document.getElementById('mobileDropdown');
+            const icon = document.getElementById('mobileMenuIcon');
+            const body = document.body;
+
+            if (dropdown.classList.contains('-translate-y-full')) {
+                // Open menu
+                dropdown.classList.remove('-translate-y-full');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+                body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            } else {
+                // Close menu
+                dropdown.classList.add('-translate-y-full');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                body.style.overflow = ''; // Restore scrolling
+            }
         }
 
         // Animasi Hero Mockup (Tukar Phone <-> Desktop)
