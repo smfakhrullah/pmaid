@@ -108,15 +108,6 @@ Sistem menggunakan jenis data khusus untuk mengoptimumkan Antara Muka Pengguna (
 
 ⚠️ **Nota:** Lajur yang mengandungi Maklumat Sensitif (seperti NO KP, NO TEL BAPA/IBU dan EMAIL ID) diletakkan di bawah pengkategorian privasi *Sensitive Data* bagi mematuhi piawaian perlindungan maklumat di dalam AppSheet.
 
-## 
-
-## 
-
-## 
-
-## 
-
-## 
 
 ## **3\. Logik Operasi & FORMULA**
 
