@@ -97,10 +97,32 @@
                     <a href="#simulasi" class="text-slate-600 hover:text-brand-500 font-medium transition-colors text-sm">Simulasi</a>
                     <a href="#ai" class="text-slate-600 hover:text-brand-500 font-medium transition-colors text-sm">AI</a>
                     <a href="#faq" class="text-slate-600 hover:text-brand-500 font-medium transition-colors text-sm">FAQ</a>
-                    <!-- NEW DOCS LINK -->
-                    <a href="user_guide.html" target="_blank" class="text-brand-600 hover:text-brand-800 font-bold transition-colors text-sm flex items-center gap-1.5 px-3 py-1.5 bg-brand-50 rounded-lg border border-brand-100">
-                        <i class="fas fa-book-open"></i> Docs
-                    </a>
+                    
+                    <!-- MENU PANDUAN (Dropdown) -->
+                    <div class="relative group">
+                        <button class="text-brand-600 hover:text-brand-800 font-bold transition-colors text-sm flex items-center gap-1.5 px-3 py-1.5 bg-brand-50 rounded-lg border border-brand-100 cursor-pointer">
+                            <i class="fas fa-book-open"></i> Panduan <i class="fas fa-chevron-down text-[10px] ml-0.5 transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <!-- Dropdown Content -->
+                        <div class="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right translate-y-2 group-hover:translate-y-0 z-50">
+                            <div class="p-2 space-y-1">
+                                <a href="user_guide.html" target="_blank" class="flex items-start gap-3 px-3 py-2.5 text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors">
+                                    <div class="mt-0.5 text-brand-500"><i class="fas fa-user-graduate w-4 text-center"></i></div>
+                                    <div>
+                                        <div class="font-bold">Dokumentasi Pengguna</div>
+                                        <div class="text-[10px] text-slate-500 font-normal leading-tight mt-0.5">Panduan penuh navigasi aplikasi untuk guru dan staf.</div>
+                                    </div>
+                                </a>
+                                <a href="https://docs.google.com/document/d/11wzYGZlVa4U4ESIZE7Mgw-jLJ4hSj6duv7kygHwLW0M/edit?usp=sharing" target="_blank" class="flex items-start gap-3 px-3 py-2.5 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900 rounded-lg transition-colors">
+                                    <div class="mt-0.5 text-slate-500"><i class="fas fa-cogs w-4 text-center"></i></div>
+                                    <div>
+                                        <div class="font-bold">Dokumentasi Teknikal</div>
+                                        <div class="text-[10px] text-slate-500 font-normal leading-tight mt-0.5">Rujukan struktur pangkalan data dan kod formula AppSheet.</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="hidden md:flex">
                     <a href="#muat-turun" class="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2.5 rounded-full font-bold transition-colors shadow-md shadow-brand-500/30">
@@ -110,26 +132,33 @@
 
                 <!-- Mobile Menu Button -->
                 <div class="lg:hidden flex items-center relative z-[101]">
-                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="text-slate-600 hover:text-brand-600 focus:outline-none p-2">
-                        <i class="fas fa-bars text-2xl" id="mobileMenuIcon"></i>
+                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="text-slate-600 hover:text-brand-600 focus:outline-none p-2 bg-slate-100 rounded-lg">
+                        <i class="fas fa-bars text-xl" id="mobileMenuIcon"></i>
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- Mobile Dropdown Menu -->
-        <div id="mobileDropdown" class="fixed inset-0 bg-white z-[90] transform -translate-y-full transition-transform duration-300 ease-in-out lg:hidden pt-24 px-6 pb-6 overflow-y-auto">
-            <div class="flex flex-col space-y-6 text-center">
-                <a href="#utama" onclick="toggleMobileMenu()" class="text-slate-800 text-xl font-bold font-heading hover:text-brand-500">Utama</a>
-                <a href="#modul" onclick="toggleMobileMenu()" class="text-slate-800 text-xl font-bold font-heading hover:text-brand-500">Modul Aplikasi</a>
-                <a href="#simulasi" onclick="toggleMobileMenu()" class="text-slate-800 text-xl font-bold font-heading hover:text-brand-500">Pratonton Simulasi</a>
-                <a href="#ai" onclick="toggleMobileMenu()" class="text-slate-800 text-xl font-bold font-heading hover:text-brand-500">Ciri AI</a>
-                <a href="#faq" onclick="toggleMobileMenu()" class="text-slate-800 text-xl font-bold font-heading hover:text-brand-500">Soalan Lazim (FAQ)</a>
-                <div class="w-16 h-px bg-slate-200 mx-auto my-2"></div>
-                <a href="user_guide.html" target="_blank" onclick="toggleMobileMenu()" class="text-brand-600 text-xl font-bold font-heading flex items-center justify-center gap-2">
-                    <i class="fas fa-book-open"></i> Buka Dokumentasi
+        <div id="mobileDropdown" class="fixed inset-0 bg-white/95 backdrop-blur-md z-[90] transform -translate-y-full transition-transform duration-300 ease-in-out lg:hidden pt-24 px-6 pb-6 overflow-y-auto">
+            <div class="flex flex-col space-y-4 text-center pb-10">
+                <a href="#utama" onclick="toggleMobileMenu()" class="text-slate-800 text-xl font-bold font-heading hover:text-brand-500 bg-white/80 py-3 rounded-xl border border-slate-100 shadow-sm">Utama</a>
+                <a href="#modul" onclick="toggleMobileMenu()" class="text-slate-800 text-xl font-bold font-heading hover:text-brand-500 bg-white/80 py-3 rounded-xl border border-slate-100 shadow-sm">Modul Aplikasi</a>
+                <a href="#simulasi" onclick="toggleMobileMenu()" class="text-slate-800 text-xl font-bold font-heading hover:text-brand-500 bg-white/80 py-3 rounded-xl border border-slate-100 shadow-sm">Pratonton Simulasi</a>
+                <a href="#ai" onclick="toggleMobileMenu()" class="text-slate-800 text-xl font-bold font-heading hover:text-brand-500 bg-white/80 py-3 rounded-xl border border-slate-100 shadow-sm">Ciri AI</a>
+                <a href="#faq" onclick="toggleMobileMenu()" class="text-slate-800 text-xl font-bold font-heading hover:text-brand-500 bg-white/80 py-3 rounded-xl border border-slate-100 shadow-sm">Soalan Lazim (FAQ)</a>
+                
+                <div class="w-16 h-1 bg-slate-200 mx-auto my-4 rounded-full"></div>
+                
+                <p class="text-brand-600 text-xs font-bold uppercase tracking-widest mt-2 mb-1">Buku Panduan</p>
+                <a href="user_guide.html" target="_blank" onclick="toggleMobileMenu()" class="text-brand-700 bg-brand-50 border border-brand-100 text-lg font-bold font-heading flex items-center justify-center gap-2 py-3 rounded-xl shadow-sm">
+                    <i class="fas fa-user-graduate"></i> Dokumentasi Pengguna
                 </a>
-                <a href="#muat-turun" onclick="toggleMobileMenu()" class="bg-brand-600 text-white px-8 py-3 rounded-full font-bold mx-auto mt-4 inline-block">
+                <a href="https://docs.google.com/document/d/11wzYGZlVa4U4ESIZE7Mgw-jLJ4hSj6duv7kygHwLW0M/edit?usp=sharing" target="_blank" onclick="toggleMobileMenu()" class="text-slate-700 bg-slate-100 border border-slate-200 text-lg font-bold font-heading flex items-center justify-center gap-2 py-3 rounded-xl shadow-sm">
+                    <i class="fas fa-cogs"></i> Dokumentasi Teknikal
+                </a>
+
+                <a href="#muat-turun" onclick="toggleMobileMenu()" class="bg-brand-600 hover:bg-brand-700 text-white px-8 py-3.5 rounded-xl font-bold mx-auto mt-6 inline-block w-full shadow-md">
                     Muat Turun Sekarang
                 </a>
             </div>
@@ -618,8 +647,9 @@
                     <ul class="space-y-3 text-sm text-slate-500">
                         <li><a href="#utama" class="hover:text-brand-500 transition-colors">Utama</a></li>
                         <li><a href="#modul" class="hover:text-brand-500 transition-colors">Modul Aplikasi</a></li>
-                        <li><a href="#ai" class="hover:text-brand-500 transition-colors">Teknologi AI</a></li>
-                        <li><a href="user_guide.html" target="_blank" class="hover:text-brand-500 transition-colors flex items-center gap-1 font-semibold text-brand-600"><i class="fas fa-external-link-alt"></i> Baca Dokumentasi Penuh</a></li>
+                        <!-- Pautan Dokumen dalam Footer -->
+                        <li><a href="user_guide.html" target="_blank" class="hover:text-brand-500 transition-colors flex items-center gap-2 font-semibold text-brand-600"><i class="fas fa-user-graduate w-4"></i> Dokumentasi Pengguna</a></li>
+                        <li><a href="https://docs.google.com/document/d/11wzYGZlVa4U4ESIZE7Mgw-jLJ4hSj6duv7kygHwLW0M/edit?usp=sharing" target="_blank" class="hover:text-brand-500 transition-colors flex items-center gap-2 font-semibold text-slate-600"><i class="fas fa-cogs w-4"></i> Dokumentasi Teknikal</a></li>
                     </ul>
                 </div>
             </div>
